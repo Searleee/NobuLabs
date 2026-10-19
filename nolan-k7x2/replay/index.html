@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Masterclass replay · Becoming Whole</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="Watch the replay, then apply below.">
+  <link rel="icon" href="../assets/img/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png" />
+<link rel="stylesheet" href="../assets/funnel.css">
+<script>document.documentElement.className += " js";</script>
+<style>
+  .narrow{max-width:900px}
+
+
+  /* hero + replay video */
+  .hero{text-align:center;padding:clamp(80px,12vh,120px) 0 30px;position:relative;overflow:hidden}
+  .hero h1{white-space:nowrap;font-size:clamp(28px,4.6vw,54px)}
+  @media(max-width:620px){.hero h1{white-space:normal}}
+  .hero .wrap{position:relative}
+  .replay-frame{aspect-ratio:16/9;margin:40px auto 0;max-width:900px;border-radius:16px;
+    overflow:hidden;position:relative;border:1px solid var(--line);
+    background:radial-gradient(70% 90% at 50% 0%,rgba(200,169,106,.16),transparent 70%),linear-gradient(180deg,#17140f,#0d0c0a);display:grid;place-items:center;
+    box-shadow:0 40px 90px -40px rgba(0,0,0,.9)}
+  .replay-frame .slate{position:absolute;left:0;right:0;bottom:26px;text-align:center;font-size:11px;font-weight:700;letter-spacing:.32em;text-transform:uppercase;color:var(--text-3)}
+  .vplay{width:80px;height:80px;border-radius:50%;background:linear-gradient(180deg,var(--gold-2),var(--gold));
+    color:var(--gold-ink);display:grid;place-items:center;box-shadow:0 18px 44px -12px var(--gold-glow)}
+  .slot-label{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-3)}
+
+  /* apply section */
+  .apply-head{text-align:center;max-width:640px;margin:0 auto 36px}
+  .apply-head h2{font-size:clamp(24px,3.4vw,34px)}
+
+  /* =====================================================================
+     TYPEFORM MOCKUP · mimics a real single-question Typeform slide
+     ===================================================================== */
+  .typeform{max-width:760px;margin:0 auto;background:#fff;color:#2b2b31;border-radius:16px;
+    position:relative;overflow:hidden;min-height:480px;
+    box-shadow:0 30px 80px -34px rgba(0,0,0,.75);border:1px solid rgba(0,0,0,.08);
+    display:flex;flex-direction:column}
+  .tf-slide{flex:1;display:none;flex-direction:column;justify-content:center;
+    padding:64px 60px;max-width:640px}
+  .tf-slide.active{display:flex;animation:tfIn .38s cubic-bezier(.22,.61,.36,1)}
+  @keyframes tfIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  /* completion state */
+  .tf-done{flex:1;display:none;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;padding:64px 60px}
+  .tf-done.active{display:flex;animation:tfIn .5s cubic-bezier(.22,.61,.36,1)}
+  .tf-done .chk{width:66px;height:66px;border-radius:50%;margin-bottom:22px;display:grid;
+    place-items:center;background:color-mix(in srgb,var(--gold-deep) 15%,#fff);color:var(--gold-deep)}
+  .tf-done .chk svg{width:33px;height:33px}
+  .tf-done h3{font-size:26px;font-weight:600;color:#33333b;letter-spacing:-.01em;line-height:1.25}
+  .tf-done p{font-size:16px;color:#8a8a93;margin:10px 0 0}
+  .tf-qnum{display:inline-flex;align-items:center;gap:6px;color:var(--gold-deep);
+    font-size:15px;font-weight:600;margin-bottom:14px}
+  .tf-qnum svg{width:15px;height:15px}
+  .tf-q{font-size:27px;font-weight:600;line-height:1.28;color:#33333b;letter-spacing:-.01em}
+  .tf-q .req{color:var(--gold-deep)}
+  .tf-desc{font-size:15px;color:#8a8a93;margin-top:8px}
+  .tf-opts{margin-top:26px;display:flex;flex-direction:column;gap:12px}
+  .tf-opt{display:flex;align-items:center;gap:12px;padding:12px 14px;cursor:pointer;
+    border:1.5px solid color-mix(in srgb,var(--gold-deep) 45%,#fff);border-radius:9px;
+    background:color-mix(in srgb,var(--gold-deep) 6%,#fff);
+    color:color-mix(in srgb,var(--gold-deep) 88%,#111);font-size:16px;font-weight:500;
+    transition:background .15s ease,border-color .15s ease}
+  .tf-opt:hover{background:color-mix(in srgb,var(--gold-deep) 14%,#fff)}
+  .tf-opt.sel{background:color-mix(in srgb,var(--gold-deep) 22%,#fff);border-color:var(--gold-deep)}
+  .tf-key{flex:none;width:26px;height:26px;border-radius:6px;display:grid;place-items:center;
+    border:1.5px solid color-mix(in srgb,var(--gold-deep) 45%,#fff);font-size:13px;font-weight:700;
+    color:color-mix(in srgb,var(--gold-deep) 88%,#111);background:#fff}
+  .tf-opt .tick{margin-left:auto;width:18px;height:18px;color:var(--gold-deep);opacity:0}
+  .tf-opt.sel .tick{opacity:1}
+  .tf-actions{display:flex;align-items:center;gap:16px;margin-top:30px}
+  .tf-ok{display:inline-flex;align-items:center;gap:8px;background:var(--gold-deep);color:#fff;
+    font-weight:700;font-size:16px;border:none;border-radius:7px;padding:11px 22px;cursor:pointer;
+    box-shadow:0 3px 0 color-mix(in srgb,var(--gold-deep) 60%,#000)}
+  .tf-ok:hover{filter:brightness(1.04)}
+  .tf-hint{font-size:14px;color:#9a9aa2;display:flex;align-items:center;gap:6px}
+  .tf-hint kbd{display:inline-flex;align-items:center;gap:4px;border:1px solid #d3d3d8;
+    border-radius:4px;padding:1px 6px;font-size:12px;font-family:inherit;color:#6b6b73}
+  /* progress + nav */
+  .tf-bottom{position:absolute;left:0;right:0;bottom:0}
+  .tf-progress{height:5px;background:#ececf0}
+  .tf-progress i{display:block;height:100%;width:20%;background:var(--gold-deep);
+    border-radius:0 3px 3px 0;transition:width .3s ease}
+  .tf-brandbar{display:flex;align-items:center;justify-content:space-between;padding:12px 18px}
+  .tf-brand{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:#4a4a52}
+  .tf-brand svg{width:18px;height:18px}
+  .tf-nav{display:flex;gap:8px}
+  .tf-nav button{width:34px;height:30px;border:none;background:var(--gold-deep);color:#fff;
+    border-radius:5px;display:grid;place-items:center;cursor:pointer;opacity:.9}
+  .tf-nav button:first-child{opacity:.5}
+  .tf-nav svg{width:16px;height:16px}
+
+  /* routing connector */
+  .route-note{display:flex;align-items:center;justify-content:center;gap:12px;
+    margin:26px auto;max-width:760px;color:var(--text-3);font-size:13px;
+    letter-spacing:.06em;text-transform:uppercase;font-weight:600}
+  .route-note::before,.route-note::after{content:"";flex:1;height:1px;
+    background:linear-gradient(90deg,transparent,var(--line),transparent)}
+
+
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important}
+    html{scroll-behavior:auto}
+  }
+
+  /* video testimonials + proof (shared) */
+  .vgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px;max-width:920px;margin:0 auto}
+  .vcard{text-align:center}
+  .vframe{aspect-ratio:16/9;border-radius:14px;overflow:hidden;position:relative;
+    border:1px solid var(--line);
+    display:grid;place-items:center}
+  .vframe .vplay{width:60px;height:60px}
+  .vname{font-family:var(--display);font-size:21px;margin:22px 0 6px}
+  .vdesc{font-size:14.5px;color:var(--text-2);margin:0 auto;max-width:34ch}
+  .proof-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .proof-grid .swap{aspect-ratio:4/5;border-radius:12px;border:1px solid var(--line)}
+
+
+  @media(max-width:860px){
+    .typeform{min-height:auto}.tf-slide{padding:44px 30px}
+    .vgrid{grid-template-columns:1fr}.proof-grid{grid-template-columns:repeat(2,1fr)}
+  }
+</style>
+</head>
+<body>
+
+
+  <!-- ============ HERO + REPLAY VIDEO ============ -->
+  <section class="hero">
+    <div class="arcs" aria-hidden="true"></div>
+    <div class="wrap narrow">
+      <p class="eyebrow rv">Replay · comes down soon</p>
+      <h1 class="rv">Watch the full masterclass replay</h1>
+      <p class="lead rv">The replay comes down soon. Once it's gone, it's gone. Watch it now.</p>
+      <div class="replay-frame rv">
+        <span class="vplay"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+        <span class="slate">Becoming Whole · Sunday masterclass</span>
+        <!-- {{SWAP: replay video}} -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ APPLICATION (Typeform → reviewed by Nolan) ============ -->
+  <section class="section" id="apply">
+    <div class="wrap">
+      <div class="apply-head rv">
+        <span class="eyebrow">Next step</span>
+        <h2>Apply for Becoming Whole</h2>
+        <p class="lead">Three quick questions. There are ten founding places, and I read every application myself. No sales call.</p>
+      </div>
+
+      <!-- TYPEFORM MOCKUP · real multi-step behaviour; ends on the "application received" beat -->
+      <div class="typeform" id="typeform" role="group" aria-label="Application form">
+
+        <!-- Q1 -->
+        <div class="tf-slide active" data-step="1">
+          <span class="tf-qnum">
+            1
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </span>
+          <div class="tf-q">Where are you right now, honestly? <span class="req">*</span></div>
+          <div class="tf-desc">Choose the option that fits you best.</div>
+          <div class="tf-opts">
+            <label class="tf-opt sel"><span class="tf-key">A</span> I know exactly what to do, I just don't do it
+              <svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></label>
+            <label class="tf-opt"><span class="tf-key">B</span> I start routines and challenges, then quit them
+              <svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></label>
+            <label class="tf-opt"><span class="tf-key">C</span> I'm fairly disciplined but I have no direction
+              <svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></label>
+            <label class="tf-opt"><span class="tf-key">D</span> I'm drifting and I know it
+              <svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></label>
+          </div>
+          <div class="tf-actions">
+            <button class="tf-ok" type="button">OK
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            </button>
+            <span class="tf-hint">press <kbd>Enter ↵</kbd></span>
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="tf-slide" data-step="2">
+          <span class="tf-qnum">
+            2
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </span>
+          <div class="tf-q">What would make the next 5 weeks a win? <span class="req">*</span></div>
+          <div class="tf-desc">Pick the closest goal.</div>
+          <div class="tf-opts">
+            <label class="tf-opt sel"><span class="tf-key">A</span> Knowing which three things to focus on
+              <svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></label>
+            <label class="tf-opt"><span class="tf-key">B</span> Turning what I believe into daily action
+              <svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></label>
+            <label class="tf-opt"><span class="tf-key">C</span> A routine I can actually keep up
+              <svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></label>
+            <label class="tf-opt"><span class="tf-key">D</span> Balancing career, fitness and study
+              <svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></label>
+          </div>
+          <div class="tf-actions">
+            <button class="tf-ok" type="button">OK
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            </button>
+            <span class="tf-hint">press <kbd>Enter ↵</kbd></span>
+          </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="tf-slide" data-step="3">
+          <span class="tf-qnum">
+            3
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </span>
+          <div class="tf-q">If it's a fit, when would you want to start? <span class="req">*</span></div>
+          <div class="tf-desc">Be honest. It helps me see where you're at.</div>
+          <div class="tf-opts">
+            <label class="tf-opt sel"><span class="tf-key">A</span> This month
+              <svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></label>
+            <label class="tf-opt"><span class="tf-key">B</span> Within the next two months
+              <svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></label>
+            <label class="tf-opt"><span class="tf-key">C</span> I need to think about it
+              <svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></label>
+            <label class="tf-opt"><span class="tf-key">D</span> I'm just curious for now
+              <svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></label>
+          </div>
+          <div class="tf-actions">
+            <button class="tf-ok" type="button">Submit
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            </button>
+            <span class="tf-hint">press <kbd>Enter ↵</kbd></span>
+          </div>
+        </div>
+
+        <!-- completion beat -->
+        <div class="tf-done" id="tfDone" aria-live="polite">
+          <span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+          <h3>Application received</h3>
+          <p>I read every one myself. If you're one of the founding ten, you'll get an email from me with everything you need to start.</p>
+        </div>
+
+        <div class="tf-bottom">
+          <div class="tf-progress"><i id="tfBar"></i></div>
+          <div class="tf-brandbar">
+            <span class="tf-brand">
+              <svg viewBox="0 0 24 24" fill="#262627" aria-hidden="true"><path d="M4 4h16a1 1 0 0 1 1 1v3H3V5a1 1 0 0 1 1-1zm-1 6h18v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-9zm7 3v4l4-2z"/></svg>
+              Typeform
+            </span>
+            <div class="tf-nav">
+              <button type="button" aria-label="Previous" id="tfPrev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg></button>
+              <button type="button" aria-label="Next" id="tfNext"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ TESTIMONIAL VIDEOS (2-up, names centred below) ============ -->
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Student results</span>
+        <h2>Hear from our students</h2>
+      </div>
+      <div class="vgrid">
+        <article class="vcard">
+          <div class="vframe swap">{{SWAP: testimonial video 1}}</div>
+          <div class="vname">{{SWAP: student name}}</div>
+          <p class="vdesc">{{SWAP: one line on where he started and what changed}}</p>
+        </article>
+        <article class="vcard">
+          <div class="vframe swap">{{SWAP: testimonial video 2}}</div>
+          <div class="vname">{{SWAP: student name}}</div>
+          <p class="vdesc">{{SWAP: one line on where he started and what changed}}</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SOCIAL PROOF (8 equal slots) ============ -->
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Proof</span>
+        <h2>What readers are saying</h2>
+      </div>
+      <div class="proof-grid">
+        <div class="swap">{{SWAP: reader reply 1}}</div>
+        <div class="swap">{{SWAP: reader reply 2}}</div>
+        <div class="swap">{{SWAP: reader reply 3}}</div>
+        <div class="swap">{{SWAP: reader reply 4}}</div>
+        <div class="swap">{{SWAP: reader reply 5}}</div>
+        <div class="swap">{{SWAP: reader reply 6}}</div>
+        <div class="swap">{{SWAP: reader reply 7}}</div>
+        <div class="swap">{{SWAP: reader reply 8}}</div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot"><span class="wordmark"><b>Nolan Killeen</b><span>Body · Mind · Character</span></span></footer>
+<script src="../assets/funnel.js"></script>
+
+<script>
+(function(){
+
+  /* =========================================================
+     TYPEFORM · multi-step: select → OK/Enter advances → reveal
+     ========================================================= */
+  var tf     = document.getElementById("typeform");
+  var slides = [].slice.call(tf.querySelectorAll(".tf-slide"));
+  var done   = document.getElementById("tfDone");
+  var bar    = document.getElementById("tfBar");
+  var idx = 0, finished = false;
+
+  function setProgress(){
+    if(bar) bar.style.width = Math.round(((idx+1)/slides.length)*100) + "%";
+  }
+  function show(i){
+    idx = Math.max(0, Math.min(slides.length-1, i));
+    slides.forEach(function(s,n){ s.classList.toggle("active", n===idx); });
+    if(done) done.classList.remove("active");
+    setProgress();
+  }
+  function select(slide, opt){
+    slide.querySelectorAll(".tf-opt").forEach(function(x){ x.classList.remove("sel"); });
+    opt.classList.add("sel");
+  }
+  function advance(){
+    if(finished) return;
+    if(idx < slides.length-1){ show(idx+1); }
+    else { complete(); }
+  }
+  function back(){ if(!finished && idx>0) show(idx-1); }
+
+  function complete(){
+    finished = true;
+    slides.forEach(function(s){ s.classList.remove("active"); });
+    if(bar) bar.style.width = "100%";
+    if(done) done.classList.add("active");
+  }
+
+  // wire each slide's options + OK button
+  slides.forEach(function(slide){
+    slide.querySelectorAll(".tf-opt").forEach(function(o){
+      o.addEventListener("click", function(){ select(slide, o); });
+    });
+    var ok = slide.querySelector(".tf-ok");
+    if(ok) ok.addEventListener("click", advance);
+  });
+
+  // nav arrows
+  var nx = document.getElementById("tfNext"); if(nx) nx.addEventListener("click", advance);
+  var pv = document.getElementById("tfPrev"); if(pv) pv.addEventListener("click", back);
+
+  // keyboard: A/B/C/D selects, Enter advances (only while a question is active)
+  document.addEventListener("keydown", function(e){
+    if(finished) return;
+    var active = slides[idx];
+    if(!active || !active.classList.contains("active")) return;
+    var k = (e.key || "").toUpperCase();
+    var map = {A:0, B:1, C:2, D:3};
+    if(k in map){
+      var o = active.querySelectorAll(".tf-opt")[map[k]];
+      if(o){ select(active, o); e.preventDefault(); }
+    } else if(e.key === "Enter"){
+      e.preventDefault(); advance();
+    }
+  });
+
+  show(0);
+
+})();
+</script>
+</body>
+</html>

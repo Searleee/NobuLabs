@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Becoming Whole · A 5-week one-on-one mentorship with Nolan Killeen</title>
+  <link rel="icon" href="../assets/img/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png" />
+<link rel="stylesheet" href="../assets/funnel.css">
+<script>document.documentElement.className += " js";</script>
+<style>
+  .hero { position: relative; text-align: center; padding: clamp(84px, 13vh, 130px) 0 clamp(56px, 8vh, 84px); overflow: hidden; }
+  .hero h1 { font-size: clamp(54px, 9vw, 112px); letter-spacing: .02em; text-transform: uppercase; line-height: .98; }
+  .hero h1 i { display: block; font-size: .42em; text-transform: none; letter-spacing: 0; color: var(--gold-2); margin-bottom: 8px; }
+  .hero .lead { max-width: 54ch; }
+  .meta { display: flex; justify-content: center; gap: 0; margin: 40px auto 0; max-width: 680px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .meta div { flex: 1; padding: 18px 10px; text-align: center; }
+  .meta div + div { border-left: 1px solid var(--line); }
+  .meta b { display: block; font-family: var(--display); font-weight: 500; font-size: 26px; }
+  .meta span { font-size: 11px; font-weight: 700; letter-spacing: .24em; text-transform: uppercase; color: var(--text-3); }
+
+  /* journey: 5 weekly sessions, prep → month → week */
+  .journey { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; position: relative; }
+  .journey::before { content: ""; position: absolute; left: 10%; right: 10%; top: 31px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); opacity: .5; }
+  .method { margin: 14px 0 0; font-size: 12px; font-weight: 700; letter-spacing: .28em; text-transform: uppercase; color: var(--gold); }
+  .phase { text-align: center; padding: 0 12px; }
+  .phase .dot { width: 62px; height: 62px; margin: 0 auto 24px; border-radius: 50%; display: grid; place-items: center; position: relative;
+    background: var(--bg); border: 1px solid var(--gold); font-family: var(--display); font-style: italic; font-size: 22px; color: var(--gold-2); }
+  .phase .wk { font-size: 11px; font-weight: 700; letter-spacing: .26em; text-transform: uppercase; color: var(--gold); }
+  .phase h3 { margin: 10px 0 12px; }
+  .phase p { margin: 0 auto; max-width: 30ch; color: var(--text-2); font-size: 15px; }
+  @media (max-width: 1080px) and (min-width: 861px) { .journey { grid-template-columns: repeat(3, 1fr); row-gap: 44px; } .journey::before { display: none; } }
+  .phase .out { display: inline-block; margin-top: 16px; font-size: 13px; color: var(--text); padding: 7px 14px; border-radius: 999px; border: 1px solid var(--line); }
+
+  /* the stack */
+  .stack { max-width: 820px; margin: 0 auto; }
+  .item { display: grid; grid-template-columns: 56px 1fr; gap: 20px; align-items: start; padding: 26px 0; border-bottom: 1px solid var(--line-soft); }
+  .item:first-child { border-top: 1px solid var(--line-soft); }
+  .item .n { font-family: var(--display); font-style: italic; font-size: 22px; color: var(--gold); padding-top: 2px; }
+  .item h3 { font-size: 22px; margin-bottom: 6px; }
+  .item p { margin: 0; color: var(--text-2); font-size: 15.5px; }
+  .item.ua { position: relative; margin: 10px -26px; padding: 30px 26px; border: 1px solid var(--gold); border-radius: 16px;
+    background: radial-gradient(90% 120% at 0% 0%, var(--gold-soft), transparent 60%), var(--surface); }
+  .flag { display: inline-block; margin-bottom: 10px; font-size: 10.5px; font-weight: 800; letter-spacing: .26em; text-transform: uppercase;
+    color: var(--gold-ink); background: var(--gold); padding: 5px 10px; border-radius: 999px; }
+  .bonus { margin-top: 36px; text-align: center; }
+  .bonus .eyebrow { margin-bottom: 18px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+  .chips span { font-size: 14px; padding: 10px 16px; border: 1px solid var(--line); border-radius: 999px; color: var(--text); background: rgba(12,11,9,.5); }
+
+  /* workload */
+  .week { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .week .card { padding: 30px 24px; text-align: center; }
+  .week b { display: block; font-family: var(--display); font-weight: 500; font-size: 38px; color: var(--gold-2); line-height: 1; }
+  .week span { display: block; margin-top: 12px; color: var(--text-2); font-size: 15px; }
+
+  /* four questions */
+  .qs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .q { padding: 30px 28px; }
+  .q .k { font-size: 11px; font-weight: 700; letter-spacing: .26em; text-transform: uppercase; color: var(--gold); }
+  .q h3 { font-size: 22px; margin: 10px 0 10px; }
+  .q p { margin: 0; color: var(--text-2); font-size: 15.5px; }
+
+  /* guarantee + price */
+  .seal { max-width: 760px; margin: 0 auto; text-align: center; padding: clamp(36px, 5vw, 56px); position: relative; }
+  .seal .ring { width: 92px; height: 92px; margin: 0 auto 22px; border-radius: 50%; border: 1px solid var(--gold); display: grid; place-items: center;
+    box-shadow: 0 0 0 6px rgba(200,169,106,.08); font-family: var(--display); font-size: 30px; color: var(--gold-2); }
+  .seal p { color: var(--text-2); max-width: 52ch; margin: 16px auto 0; }
+  .price { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 900px; margin: 0 auto; }
+  .price .card { padding: 34px 30px; text-align: center; }
+  .price .k { font-size: 11px; font-weight: 700; letter-spacing: .26em; text-transform: uppercase; color: var(--text-3); }
+  .price .v { font-family: var(--display); font-size: clamp(34px, 4.4vw, 46px); margin: 12px 0 8px; }
+  .price p { margin: 0 auto; color: var(--text-2); font-size: 15px; max-width: 34ch; }
+  .sums { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; font-family: var(--display); font-size: clamp(22px, 3vw, 30px); }
+  .sums i { font-style: normal; color: var(--gold); font-family: var(--sans); font-size: 18px; }
+  .sums b { font-weight: 500; color: var(--gold-2); }
+  .note { text-align: center; color: var(--text-3); font-size: 13px; margin-top: 14px; }
+  .close { text-align: center; }
+
+  @media (max-width: 860px) {
+    .journey, .week, .qs, .price { grid-template-columns: 1fr; }
+    .journey { gap: 44px; } .journey::before { display: none; }
+    .item.ua { margin: 10px 0; }
+  }
+  @media (max-width: 520px) { .meta { flex-direction: column; } .meta div + div { border-left: 0; border-top: 1px solid var(--line); } .item { grid-template-columns: 40px 1fr; gap: 12px; } }
+</style>
+</head>
+<body>
+<main>
+  <section class="hero">
+    <div class="arcs" aria-hidden="true"></div>
+    <div class="wrap">
+      <p class="eyebrow rv">A 5-week one-on-one mentorship with Nolan Killeen</p>
+      <h1 class="rv"><i>Becoming</i>Whole</h1>
+      <p class="method rv">The Three Priorities Method</p>
+      <p class="lead rv">Five weeks to go from being pulled in every direction to knowing the three things that matter right now, across career, fitness and study, with a monthly and weekly system for acting on them.</p>
+      <div class="meta rv">
+        <div><b>5</b><span>Weeks</span></div>
+        <div><b>1:1</b><span>With Nolan</span></div>
+        <div><b>10</b><span>Founding places</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head rv"><p class="eyebrow">The 5 weeks</p><h2>From the prep phase to a week you can repeat</h2></div>
+      <div class="journey rv-stagger">
+        <div class="phase"><div class="dot">I</div><div class="wk">Week 1</div><h3>The Prep Phase</h3><p>Lay out everything you've committed to and the tradeoffs behind it, so you can see what's truly urgent and what only feels urgent.</p><span class="out">Your commitments on one page</span></div>
+        <div class="phase"><div class="dot">II</div><div class="wk">Week 2</div><h3>Choose the Three</h3><p>Cut a long list of goals down to three actionable priorities across career, fitness and study.</p><span class="out">Three priorities, chosen</span></div>
+        <div class="phase"><div class="dot">III</div><div class="wk">Week 3</div><h3>A Theme for the Month</h3><p>Use practical philosophy to set a monthly theme and an identity statement that tie your daily choices to the man you're becoming.</p><span class="out">Your theme and identity statement</span></div>
+        <div class="phase"><div class="dot">IV</div><div class="wk">Week 4</div><h3>Build the Weekly Phase</h3><p>Turn the month into a weekly quota or scorecard, plus a minimum viable week for the weeks when life gets hard.</p><span class="out">A scorecard and a minimum viable week</span></div>
+        <div class="phase"><div class="dot">V</div><div class="wk">Week 5</div><h3>Review and Adjust</h3><p>Use your scorecard to see what's working and reset the next week, without adding more priorities.</p><span class="out">A review you run every week</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head rv"><p class="eyebrow">What's inside</p><h2>Everything you get</h2></div>
+      <div class="stack rv-stagger">
+        <div class="item"><span class="n">i.</span><div><h3>Five live one-on-one sessions with Nolan</h3><p>One a week, in order: the prep phase, choosing the three, setting the month, building the week, then review and adjust.</p></div></div>
+        <div class="item ua"><span class="n">ii.</span><div><span class="flag">The unfair advantage</span><h3>A plan built around your actual life</h3><p>Because it's one-on-one, every step works on your real commitments: your job, your training, your study. Nolan adapts the process to the demands you're actually juggling, not a template.</p></div></div>
+        <div class="item"><span class="n">iii.</span><div><h3>The Three Priorities Planner</h3><p>Your three priorities, your monthly theme and your identity statement, kept on one page in front of you.</p></div></div>
+        <div class="item"><span class="n">iv.</span><div><h3>The Weekly Scorecard</h3><p>A weekly quota for each priority, so progress is something you can count, and the tool you use to review and reset every week.</p></div></div>
+        <div class="item"><span class="n">v.</span><div><h3>A worksheet every week</h3><p>Each session comes with a short worksheet, so the work turns into decisions you've written down.</p></div></div>
+      </div>
+      <div class="bonus rv">
+        <p class="eyebrow">Bonuses</p>
+        <div class="chips"><span>The Philosophers' Vault</span><span>A weekly live group call with the founding ten</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head rv"><p class="eyebrow">Your week</p><h2>One session, one group call, one scorecard</h2></div>
+      <div class="week rv-stagger">
+        <div class="card"><b>1 session</b><span>a week, live and one-on-one with Nolan</span></div>
+        <div class="card"><b>1 group call</b><span>a week, live with the other founding men</span></div>
+        <div class="card"><b>1 scorecard</b><span>reviewed at the end of every week</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head rv"><p class="eyebrow">Before you apply</p><h2>The four questions every man asks</h2></div>
+      <div class="qs rv-stagger">
+        <div class="q card"><span class="k">Will it work for me?</span><h3>It starts by choosing, not adding</h3><p>The masterclass shows you how to win the day before it starts. Becoming Whole decides which battles are worth winning. Instead of one more demanding routine on a crowded life, you pick three priorities and let the rest wait.</p></div>
+        <div class="q card"><span class="k">Can I keep it up?</span><h3>It plans for your bad weeks</h3><p>Intense routines collapse the first time life gets busy. Your minimum viable week is the floor you hold on a hard week, so you keep your momentum instead of starting over.</p></div>
+        <div class="q card"><span class="k">Why Nolan?</span><h3>He rebuilt himself this way at 20</h3><p>After boxing, he put his life back together with philosophy, a journal and a structured day. He turns those principles into real decisions about career, fitness and study, and he works through every session with you himself.</p></div>
+        <div class="q card"><span class="k">Why now?</span><h3>Ten founding places</h3><p>This is the first intake, and every session is one-on-one with Nolan, so it's capped at ten. Once the method is proven it moves to recorded lessons and group coaching. The founding ten are the only men who get him one-on-one.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="seal card rv">
+        <div class="ring">3</div>
+        <p class="eyebrow">Where you'll be in five weeks</p>
+        <h2>Clear on what matters, with a rhythm that holds</h2>
+        <p>From feeling pulled in every direction, and frustrated by the gap between what you believe and what you do, to knowing what matters now and following through week after week, without treating every ambition as urgent.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head rv"><p class="eyebrow">Is it for you?</p><h2>Built for one kind of man</h2></div>
+      <div class="price rv-stagger">
+        <div class="card"><div class="k">Who it's for</div><div class="v">18 to 30</div><p>Ambitious men balancing career, fitness and study who want to grow without turning every goal into an urgent demand.</p></div>
+        <div class="card"><div class="k">How to join</div><div class="v">Apply</div><p>Apply under the masterclass replay. Nolan reads every application himself, with no sales call. If you're one of the ten, you'll get an email with everything you need to start.</p></div>
+      </div>
+      <div class="close rv" style="margin-top:56px"><a class="btn btn-gold" href="../register/index.html">Save a seat for Sunday <span class="ar">→</span></a></div>
+    </div>
+  </section>
+</main>
+<footer class="foot"><span class="wordmark"><b>Nolan Killeen</b><span>Body · Mind · Character</span></span></footer>
+<script src="../assets/funnel.js"></script>
+</body>
+</html>

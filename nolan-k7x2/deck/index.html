@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Becoming Whole · Masterclass presentation</title>
+  <link rel="icon" href="../assets/img/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png" />
+<link rel="stylesheet" href="../assets/funnel.css">
+<!-- Engine: template/deck-scaffold.html (mechanics only). Design + copy below are Nolan's (system B). -->
+<style>
+  /* ---- engine mechanics (verbatim from the scaffold) ---- */
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0}
+  body{overflow:hidden}
+  #stage{position:fixed;inset:0}
+  .slide{position:absolute;inset:0;overflow:hidden}
+  #bar{position:fixed;left:0;top:0;height:2px;background:var(--gold);opacity:.7;width:0;transition:width .3s ease;z-index:5}
+  #counter{position:fixed;right:18px;bottom:14px;z-index:5;font:600 11px/1 var(--sans);color:var(--text-3);letter-spacing:.14em;font-variant-numeric:tabular-nums}
+  @media (prefers-reduced-motion:reduce){#bar{transition:none}}
+
+  /* ---- Nolan's deck system ---- */
+  .sl{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:7vh 7vw}
+  .sl h2{font-size:clamp(28px,4.6vw,64px);line-height:1.1;max-width:22ch}
+  .sl h2.xl{font-size:clamp(36px,6.4vw,92px);max-width:18ch}
+  .sl h2 em,.sl h3 em{color:var(--gold-2)}
+  .sl .sub{margin:3.2vh auto 0;max-width:46ch;color:var(--text-2);font-size:clamp(15px,1.6vw,22px);line-height:1.5}
+  .sl .kick{font:700 clamp(10px,.95vw,13px)/1 var(--sans);letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-bottom:3.4vh;display:inline-flex;gap:14px;align-items:center}
+  .sl .kick::before,.sl .kick::after{content:"";width:26px;height:1px;background:currentColor;opacity:.55}
+  .arcbg{position:absolute;left:50%;top:50%;width:150vmax;height:150vmax;transform:translate(-50%,-50%);pointer-events:none;
+    background:repeating-radial-gradient(circle,transparent 0 5vmax,rgba(200,169,106,.06) 5vmax calc(5vmax + 1px));
+    -webkit-mask-image:radial-gradient(circle,#000 0 18%,transparent 45%);mask-image:radial-gradient(circle,#000 0 18%,transparent 45%)}
+  /* entrance */
+  .a{opacity:0;transform:translateY(16px);animation:up .9s var(--ease) forwards;animation-delay:calc(var(--d,0) * 1s)}
+  @keyframes up{to{opacity:1;transform:none}}
+  .fade{opacity:0;animation:fd 1s ease forwards;animation-delay:calc(var(--d,0) * 1s)}
+  @keyframes fd{to{opacity:1}}
+  html.reduced .a,html.reduced .fade{animation:none;opacity:1;transform:none}
+
+  /* divider */
+  .div .num{font-family:var(--display);font-style:italic;font-size:clamp(70px,13vw,190px);line-height:1;color:var(--gold);opacity:.9}
+  .div .step{font:700 12px var(--sans);letter-spacing:.36em;text-transform:uppercase;color:var(--text-3);margin-top:2vh}
+  .div h2{margin-top:2vh}
+  .div .rule{width:90px;height:1px;margin:3vh auto 0;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+
+  /* photo layouts */
+  .full img,.full .ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .full::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(12,11,9,.92) 0,rgba(12,11,9,.6) 38%,rgba(12,11,9,0) 70%)}
+  .full .cap{position:absolute;left:7vw;bottom:12vh;z-index:2;text-align:left;max-width:40vw}
+  .full .cap h2{text-align:left;max-width:none}
+  .full .cap .sub{margin-left:0;text-align:left}
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:5vw;align-items:center;text-align:left}
+  .split h2,.split .sub{text-align:left;margin-left:0}
+  .frame{position:relative;width:100%;aspect-ratio:4/5;max-height:72vh;border-radius:14px;overflow:hidden;border:1px solid var(--line);box-shadow:0 40px 90px -40px #000}
+  .frame img{width:100%;height:100%;object-fit:cover}
+  .polaroid{background:#f2ede3;padding:14px 14px 56px;border-radius:4px;transform:rotate(-3deg);box-shadow:0 40px 80px -30px #000;max-width:min(38vw,440px);margin:0 auto}
+  .polaroid img,.polaroid .ph{width:100%;aspect-ratio:1;object-fit:cover;display:block}
+  .polaroid span{display:block;color:#3a332a;font:italic 400 clamp(14px,1.4vw,20px) var(--display);margin-top:12px;text-align:center}
+  .ph.swap{display:grid;place-items:center;text-align:center;padding:24px;color:var(--text-3);font:700 11px/1.6 var(--sans);letter-spacing:.18em;text-transform:uppercase;
+    background:repeating-linear-gradient(135deg,rgba(200,169,106,.05) 0 12px,transparent 12px 24px),var(--surface);border:1px dashed rgba(200,169,106,.4)}
+  .frame .ph.swap{position:absolute;inset:0;border-radius:14px}
+  .cluster{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4vw;width:min(80vw,1000px);margin-top:4vh}
+  .cluster .ph{aspect-ratio:3/4;border-radius:10px}
+  .art{width:min(32vw,46vh);aspect-ratio:1;border-radius:10px;box-shadow:0 40px 90px -30px #000,0 0 0 1px var(--line)}
+
+  /* big number */
+  .big{font-family:var(--display);font-size:clamp(80px,15vw,220px);line-height:.95;color:var(--text)}
+  .big small{font-size:.32em;color:var(--gold-2);font-style:italic;margin-left:.15em}
+
+  /* myth vs truth */
+  .vs{display:grid;grid-template-columns:1fr auto 1fr;gap:3vw;align-items:stretch;width:min(86vw,1100px);margin-top:5vh}
+  .vs .c{padding:4vh 2.6vw;border-radius:16px;border:1px solid var(--line);text-align:center}
+  .vs .c .t{font:700 11px var(--sans);letter-spacing:.3em;text-transform:uppercase}
+  .vs .c p{font-family:var(--display);font-size:clamp(18px,2.1vw,30px);line-height:1.3;margin:2vh 0 0}
+  .vs .myth{opacity:.55}.vs .myth .t{color:var(--text-3)}.vs .myth p{text-decoration:line-through;text-decoration-color:rgba(200,169,106,.6);text-decoration-thickness:2px}
+  .vs .truth{border-color:var(--gold);background:radial-gradient(90% 90% at 50% 0%,var(--gold-soft),transparent 70%)}.vs .truth .t{color:var(--gold)}
+  .vs .mid{display:grid;place-items:center;font-family:var(--display);font-style:italic;color:var(--gold);font-size:22px}
+
+  /* horizontal connected steps */
+  .row{position:relative;display:flex;justify-content:center;gap:2vw;width:min(90vw,1200px);margin-top:6vh}
+  .row::before{content:"";position:absolute;left:8%;right:8%;top:3.2vw;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.6;transform-origin:left;animation:line 1.2s var(--ease) both}
+  @keyframes line{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+  html.reduced .row::before{animation:none}
+  .node{flex:1;max-width:220px}
+  .node .o{position:relative;width:6.4vw;height:6.4vw;min-width:52px;min-height:52px;margin:0 auto 2.2vh;border-radius:50%;display:grid;place-items:center;background:var(--bg);border:1px solid var(--gold);color:var(--gold-2);font-family:var(--display);font-style:italic;font-size:clamp(16px,1.7vw,24px)}
+  .node .o svg{width:42%;height:42%}
+  .node b{display:block;font-family:var(--display);font-weight:500;font-size:clamp(15px,1.5vw,22px);line-height:1.25}
+  .node span{display:block;margin-top:1vh;color:var(--text-2);font-size:clamp(12px,1.05vw,15px);line-height:1.45}
+
+  /* cards / chips */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6vw;width:min(88vw,1150px);margin-top:5vh}
+  .cardx{padding:3.6vh 1.8vw;border-radius:16px;border:1px solid var(--line);background:linear-gradient(180deg,var(--surface-2),var(--surface));text-align:center}
+  .cardx .i{font-family:var(--display);font-style:italic;color:var(--gold);font-size:18px}
+  .cardx b{display:block;font-family:var(--display);font-weight:500;font-size:clamp(17px,1.7vw,25px);margin-top:1.2vh;line-height:1.25}
+  .cardx span{display:block;color:var(--text-2);font-size:clamp(12px,1.1vw,15px);margin-top:1vh;line-height:1.45}
+  .cardx.on{border-color:var(--gold);background:radial-gradient(90% 90% at 50% 0%,var(--gold-soft),transparent 70%),var(--surface)}
+  .chips{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;max-width:900px;margin-top:4vh}
+  .chips span{padding:12px 18px;border:1px solid var(--line);border-radius:999px;font-size:clamp(13px,1.2vw,16px);background:rgba(12,11,9,.6)}
+
+  /* stack */
+  .stack{width:min(70vw,820px);margin-top:4vh;display:flex;flex-direction:column;gap:1.2vh}
+  .stack div{display:flex;align-items:center;gap:18px;padding:1.8vh 22px;border:1px solid var(--line);border-radius:12px;background:var(--surface);text-align:left;font-size:clamp(14px,1.4vw,20px)}
+  .stack div i{font-family:var(--display);color:var(--gold);width:28px}
+  .stack div.new{border-color:var(--gold);background:radial-gradient(90% 140% at 0 0,var(--gold-soft),transparent 60%),var(--surface)}
+  .stack div.dim{opacity:.55}
+  .stack .flag{margin-left:auto;font:800 10px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--gold-ink);background:var(--gold);padding:5px 9px;border-radius:999px}
+
+  /* engagement */
+  .chat{display:inline-flex;align-items:center;gap:14px;margin-top:5vh;padding:16px 26px;border-radius:999px;border:1px solid var(--line);background:var(--surface);font-size:clamp(15px,1.5vw,20px)}
+  .chat .dot{width:10px;height:10px;border-radius:50%;background:#e2584a;box-shadow:0 0 0 0 rgba(226,88,74,.6);animation:pulse 1.8s infinite}
+  @keyframes pulse{70%{box-shadow:0 0 0 12px rgba(226,88,74,0)}100%{box-shadow:0 0 0 0 rgba(226,88,74,0)}}
+  a.chat{color:inherit;text-decoration:none}
+  .chat b{font-family:var(--display);font-size:1.4em;color:var(--gold-2)}
+
+  /* demos */
+  .bars{display:flex;align-items:flex-end;justify-content:center;gap:1vw;height:34vh;width:min(80vw,900px);margin-top:5vh;border-bottom:1px solid var(--line)}
+  .bars div{flex:1;background:linear-gradient(180deg,var(--gold-2),var(--gold-deep));border-radius:6px 6px 0 0;height:0;animation:grow 1s var(--ease) forwards;animation-delay:calc(var(--d,0) * 1s);position:relative}
+  .bars div span{position:absolute;bottom:-3.4vh;left:0;right:0;font:600 11px var(--sans);color:var(--text-3);letter-spacing:.1em}
+  .bars div.off{background:rgba(242,237,227,.12)}
+  @keyframes grow{to{height:var(--h)}}
+  html.reduced .bars div{animation:none;height:var(--h)}
+  .battery{width:min(46vw,520px);height:min(13vw,140px);border:2px solid var(--text-2);border-radius:18px;padding:10px;position:relative;margin-top:5vh}
+  .battery::after{content:"";position:absolute;right:-16px;top:30%;width:10px;height:40%;background:var(--text-2);border-radius:0 4px 4px 0}
+  .battery i{display:block;height:100%;border-radius:10px;background:linear-gradient(90deg,#c46a4a,var(--gold));width:100%;animation:drain 3.6s .6s ease-in forwards}
+  @keyframes drain{to{width:6%}}
+  html.reduced .battery i{animation:none;width:6%}
+  .days{display:flex;gap:1.4vw;margin-top:2.4vh;justify-content:space-between;width:min(46vw,520px);font:700 12px var(--sans);letter-spacing:.2em;color:var(--text-3)}
+  .loop{display:flex;align-items:center;gap:1.4vw;margin-top:6vh;flex-wrap:wrap;justify-content:center}
+  .loop span{padding:14px 20px;border:1px solid var(--line);border-radius:999px;font-size:clamp(13px,1.3vw,18px);opacity:0;animation:up .6s var(--ease) forwards;animation-delay:calc(var(--d) * 1s)}
+  .loop i{color:var(--gold);font-style:normal;opacity:0;animation:fd .4s forwards;animation-delay:calc(var(--d) * 1s)}
+  html.reduced .loop span,html.reduced .loop i{animation:none;opacity:1}
+  .page{width:min(52vw,640px);aspect-ratio:4/3;margin-top:4vh;border-radius:6px;padding:4vh 3vw;text-align:left;
+    background:repeating-linear-gradient(180deg,transparent 0 calc(3.6vh - 1px),rgba(60,50,35,.18) calc(3.6vh - 1px) 3.6vh),#f2ede3;color:#2b251c;box-shadow:0 40px 90px -30px #000;transform:rotate(-1.5deg)}
+  .page p{margin:0;font:italic 400 clamp(14px,1.6vw,22px)/3.6vh var(--display);overflow:hidden;white-space:nowrap;width:0;animation:type 1.4s steps(40) forwards;animation-delay:calc(var(--d) * 1s)}
+  @keyframes type{to{width:100%}}
+  html.reduced .page p{animation:none;width:100%}
+  .heat{display:grid;grid-template-columns:70px repeat(7,1fr);gap:6px;width:min(70vw,860px);margin-top:5vh;font:600 11px var(--sans);color:var(--text-3);letter-spacing:.12em}
+  .heat b{font-weight:600;display:grid;place-items:center}
+  .heat i{aspect-ratio:1.6;border-radius:5px;background:rgba(242,237,227,.06);opacity:0;animation:fd .5s forwards;animation-delay:calc(var(--d) * 1s)}
+  .heat i.h1{background:rgba(200,169,106,.3)}.heat i.h2{background:rgba(200,169,106,.75)}
+  html.reduced .heat i{animation:none;opacity:1}
+  .q2r{display:grid;grid-template-columns:1fr auto 1fr;gap:3vw;align-items:center;width:min(86vw,1100px);margin-top:5vh}
+  .q2r .q{font-family:var(--display);font-style:italic;font-size:clamp(17px,2vw,28px);color:var(--text-2);line-height:1.35}
+  .q2r .q small{display:block;margin-top:1.6vh;font:700 11px var(--sans);letter-spacing:.26em;text-transform:uppercase;font-style:normal;color:var(--text-3)}
+  .q2r .arrow{font-size:28px;color:var(--gold)}
+  .q2r .r{padding:3.4vh 2vw;border:1px solid var(--gold);border-radius:14px;font-family:var(--display);font-size:clamp(18px,2.1vw,30px);background:var(--gold-soft)}
+  .q2r .r small{display:block;margin-bottom:1.4vh;font:700 11px var(--sans);letter-spacing:.26em;text-transform:uppercase;color:var(--gold)}
+  .code{width:min(46vw,560px);padding:5vh 3vw;border:1px solid var(--gold);border-radius:6px;background:var(--surface);text-align:left;box-shadow:0 0 0 8px rgba(200,169,106,.06),0 40px 90px -30px #000}
+  .code h3{text-align:center;font-size:clamp(20px,2.2vw,30px);letter-spacing:.14em;text-transform:uppercase;margin-bottom:3vh}
+  .code ol{margin:0;padding-left:1.4em;font-family:var(--display);font-size:clamp(15px,1.6vw,22px);line-height:1.8}
+  .code li::marker{color:var(--gold);font-style:italic}
+  .seats{display:grid;grid-template-columns:repeat(10,1fr);gap:10px;width:min(56vw,640px);margin-top:5vh}
+  .seats i{aspect-ratio:1;border-radius:50%;border:1px solid var(--gold);opacity:0;animation:fd .3s forwards;animation-delay:calc(var(--d) * 1s)}
+  .seats i.f{background:var(--gold)}
+  html.reduced .seats i{animation:none;opacity:1}
+  .timeline{display:flex;width:min(88vw,1150px);margin-top:6vh;position:relative}
+  .timeline::before{content:"";position:absolute;left:0;right:0;top:9px;height:1px;background:var(--line)}
+  .timeline div{flex:1;text-align:center;position:relative;padding-top:34px}
+  .timeline div::before{content:"";position:absolute;left:50%;top:3px;width:13px;height:13px;margin-left:-6px;border-radius:50%;background:var(--bg);border:1px solid var(--gold)}
+  .timeline div.on::before{background:var(--gold)}
+  .timeline b{display:block;font:700 11px var(--sans);letter-spacing:.2em;color:var(--gold)}
+  .timeline span{display:block;margin-top:1vh;font-size:clamp(12px,1.15vw,16px);color:var(--text-2);padding:0 6px;line-height:1.4}
+  .room{position:relative;width:min(70vw,860px);height:34vh;margin-top:5vh;border:1px solid var(--line);border-radius:16px;background:var(--surface)}
+  .room .bed{position:absolute;left:6%;bottom:14%;width:30%;height:34%;border:1px solid var(--line);border-radius:10px}
+  .room .bed::after{content:"Bed";position:absolute;inset:auto 0 -3.4vh;font:700 11px var(--sans);letter-spacing:.2em;color:var(--text-3);text-transform:uppercase}
+  .room .desk{position:absolute;right:6%;bottom:14%;width:22%;height:22%;border:1px solid var(--line);border-radius:8px}
+  .room .desk::after{content:"Across the room";position:absolute;inset:auto 0 -3.4vh;font:700 11px var(--sans);letter-spacing:.2em;color:var(--text-3);text-transform:uppercase;white-space:nowrap}
+  .room .phone{position:absolute;left:30%;bottom:46%;width:3.2vw;min-width:26px;aspect-ratio:9/19;border-radius:6px;background:var(--gold);box-shadow:0 0 30px var(--gold-glow);animation:move 1.8s .8s var(--ease) forwards}
+  @keyframes move{to{left:81%;bottom:38%}}
+  html.reduced .room .phone{animation:none;left:81%;bottom:38%}
+  .gift2{width:min(26vw,300px);border-radius:6px;box-shadow:0 40px 90px -30px #000,0 0 0 1px var(--line);transform:rotate(-4deg)}
+  .gift2.blur{filter:blur(14px) brightness(.7)}
+  .stat3{display:grid;grid-template-columns:repeat(3,1fr);gap:2vw;width:min(80vw,960px);margin-top:5vh}
+  .stat3 div{padding:4vh 1vw;border-top:1px solid var(--gold)}
+  .stat3 b{display:block;font-family:var(--display);font-weight:500;font-size:clamp(34px,4.6vw,66px);line-height:1}
+  .stat3 span{display:block;margin-top:1.4vh;color:var(--text-2);font-size:clamp(12px,1.1vw,15px)}
+  @media (max-width:760px){.split{grid-template-columns:1fr}.vs,.q2r{grid-template-columns:1fr}.vs .mid,.q2r .arrow{display:none}.cards,.stat3{grid-template-columns:1fr}.row{flex-wrap:wrap}.row::before{display:none}.full .cap{max-width:80vw}}
+</style>
+</head>
+<body>
+<div id="stage" aria-live="polite"></div>
+<div id="bar"></div>
+<div id="counter"></div>
+<script>
+/* ===== THE ENGINE (verbatim from template/deck-scaffold.html) ===== */
+const DECK = (function(){
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) document.documentElement.classList.add('reduced');
+  const stage = document.getElementById('stage');
+  const bar = document.getElementById('bar');
+  const counter = document.getElementById('counter');
+  let current = 0, SLIDES = [];
+  function show(i){
+    if (!SLIDES.length) return;
+    current = Math.max(0, Math.min(SLIDES.length - 1, i));
+    const s = SLIDES[current];
+    const el = document.createElement('section');
+    el.className = 'slide';
+    el.innerHTML = (typeof s === 'string') ? s : (s.html || '');
+    stage.replaceChildren(el);
+    if (s && typeof s.onMount === 'function') s.onMount(el, { reduced });
+    bar.style.width = (current / Math.max(1, SLIDES.length - 1) * 100) + '%';
+    counter.textContent = (current + 1) + ' / ' + SLIDES.length;
+  }
+  const next = () => show(current + 1);
+  const prev = () => show(current - 1);
+  addEventListener('keydown', e => {
+    if (['ArrowRight',' ','Spacebar','PageDown'].includes(e.key)){ e.preventDefault(); next(); }
+    else if (['ArrowLeft','PageUp'].includes(e.key)){ e.preventDefault(); prev(); }
+    else if (e.key === 'Home'){ show(0); }
+    else if (e.key === 'End'){ show(SLIDES.length - 1); }
+  });
+  addEventListener('click', e => { if (e.target.closest('a')) return; (e.clientX < innerWidth * 0.33 ? prev : next)(); });
+  function load(slides){ SLIDES = slides || []; const h = parseInt(location.hash.slice(1), 10); show(h ? h - 1 : 0); }
+  return { load, show, next, prev, reduced };
+})();
+
+/* ===== slide builders (Nolan's system) ===== */
+const IMG = '../assets/img/';
+const d = (n) => `style="--d:${n}"`;
+const swap = (t) => `<div class="ph swap">{{SWAP: ${t}}}</div>`;
+const pic = (src, pos) => `<img src="${IMG}${src}" alt="" style="object-position:${pos||'50% 20%'}">`;
+const S = {
+  text: (kick, h, sub, xl) => `<div class="sl"><div class="arcbg"></div>${kick?`<div class="kick a">${kick}</div>`:''}<h2 class="a ${xl?'xl':''}" ${d(.1)}>${h}</h2>${sub?`<p class="sub a" ${d(.35)}>${sub}</p>`:''}</div>`,
+  div: (num, step, h) => `<div class="sl div"><div class="arcbg"></div>${num?`<div class="num a">${num}</div>`:''}<div class="step a" ${d(.15)}>${step}</div><h2 class="a" ${d(.3)}>${h}</h2><div class="rule fade" ${d(.6)}></div></div>`,
+  full: (img, h, sub, pos) => `<div class="full">${img.startsWith('SWAP')?swap(img.slice(5)):pic(img,pos)}<div class="cap"><h2 class="a">${h}</h2>${sub?`<p class="sub a" ${d(.25)}>${sub}</p>`:''}</div></div>`,
+  framed: (img, h, sub, pos, flip) => `<div class="sl"><div class="split" style="width:min(86vw,1150px)">${flip?'':`<div class="frame a">${img.startsWith('SWAP')?swap(img.slice(5)):pic(img,pos)}</div>`}<div><h2 class="a" ${d(.15)}>${h}</h2>${sub?`<p class="sub a" ${d(.35)}>${sub}</p>`:''}</div>${flip?`<div class="frame a">${img.startsWith('SWAP')?swap(img.slice(5)):pic(img,pos)}</div>`:''}</div></div>`,
+  polaroid: (img, cap, h, pos) => `<div class="sl"><div class="split" style="width:min(86vw,1100px)"><div class="polaroid a">${img.startsWith('SWAP')?swap(img.slice(5)):pic(img,pos)}<span>${cap}</span></div><div><h2 class="a" ${d(.2)}>${h}</h2></div></div></div>`,
+  art: (img, h, sub) => `<div class="sl"><div class="split" style="width:min(80vw,1050px)"><img class="art a" src="${IMG}${img}" alt=""><div><h2 class="a" ${d(.15)}>${h}</h2>${sub?`<p class="sub a" ${d(.35)}>${sub}</p>`:''}</div></div></div>`,
+  big: (num, unit, h, sub) => ({ html: `<div class="sl"><div class="arcbg"></div><div class="big a"><span class="cnt" data-to="${num}">0</span>${unit?`<small>${unit}</small>`:''}</div><h2 class="a" ${d(.3)} style="margin-top:3vh;font-size:clamp(22px,3vw,42px)">${h}</h2>${sub?`<p class="sub a" ${d(.5)}>${sub}</p>`:''}</div>`, onMount: countUp }),
+  vs: (kick, h, myth, truth) => `<div class="sl">${kick?`<div class="kick a">${kick}</div>`:''}<h2 class="a" ${d(.1)}>${h}</h2><div class="vs"><div class="c myth a" ${d(.35)}><div class="t">The myth</div><p>${myth}</p></div><div class="mid fade" ${d(.6)}>vs</div><div class="c truth a" ${d(.8)}><div class="t">What's true</div><p>${truth}</p></div></div></div>`,
+  row: (kick, h, nodes) => `<div class="sl">${kick?`<div class="kick a">${kick}</div>`:''}<h2 class="a" ${d(.1)}>${h}</h2><div class="row">${nodes.map((n,i)=>`<div class="node a" ${d(.4+i*.18)}><div class="o">${n[0]}</div><b>${n[1]}</b>${n[2]?`<span>${n[2]}</span>`:''}</div>`).join('')}</div></div>`,
+  cards: (kick, h, cs, on) => `<div class="sl">${kick?`<div class="kick a">${kick}</div>`:''}<h2 class="a" ${d(.1)}>${h}</h2><div class="cards">${cs.map((c,i)=>`<div class="cardx a ${on===i?'on':''}" ${d(.35+i*.15)}><div class="i">${c[0]}</div><b>${c[1]}</b>${c[2]?`<span>${c[2]}</span>`:''}</div>`).join('')}</div></div>`,
+  chat: (kick, h, prompt) => `<div class="sl"><div class="arcbg"></div>${kick?`<div class="kick a">${kick}</div>`:''}<h2 class="a" ${d(.1)}>${h}</h2><div class="chat a" ${d(.4)}><span class="dot"></span>${prompt}</div></div>`,
+  stack: (h, items, upto, sub) => `<div class="sl"><div class="kick a">Becoming Whole</div><h2 class="a" ${d(.1)} style="font-size:clamp(24px,3.4vw,48px)">${h}</h2><div class="stack">${items.slice(0,upto).map((it,i)=>`<div class="${upto>items.length?'':(i===upto-1?'new a':'dim')}" ${i===upto-1?d(.3):''}><i>${['i.','ii.','iii.','iv.','v.'][i]}</i>${it[0]}${it[1]?'<span class="flag">The unfair advantage</span>':''}</div>`).join('')}</div>${sub?`<p class="sub a" ${d(.5)}>${sub}</p>`:''}</div>`,
+  custom: (html, onMount) => onMount ? { html, onMount } : html,
+};
+function countUp(el, { reduced }){
+  el.querySelectorAll('.cnt').forEach(n => {
+    const end = parseFloat(n.dataset.to), fmt = v => v >= 1000 ? Math.round(v).toLocaleString() : (end % 1 ? v.toFixed(1) : Math.round(v));
+    if (reduced){ n.textContent = fmt(end); return; }
+    const t0 = performance.now(), dur = 1300;
+    (function tick(now){ const p = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - p, 3); n.textContent = fmt(end * e); if (p < 1) requestAnimationFrame(tick); })(t0);
+  });
+}
+/* application link: label is what shows on screen live, href is where it goes. Paste the same link in the chat. */
+const APPLY = { label: 'nolankilleen.com/apply', href: '../replay/index.html#apply' };
+const applyLink = (delay) => `<a class="chat a" ${d(delay)} href="${APPLY.href}" target="_blank" rel="noopener"><span class="dot"></span>Apply now: <b>${APPLY.label}</b></a>`;
+const P = ['Build a Win-First Day', 'Run the 10-Minute Recon', 'Write Your Personal Code'];
+const PD = ['Set up your room, phone and evening so tomorrow\'s hard thing is decided before you wake up.',
+            'The morning page method that shows you exactly when you fold, so you get ahead of it.',
+            'Turn Marcus Aurelius, Sun Tzu and the Tao into five rules you live by every day.'];
+const STACK = [['Five live one-on-one sessions with me'], ['A plan built around your actual life', true], ['The Three Priorities Planner'], ['The Weekly Scorecard'], ['A worksheet every week']];
+const ico = {
+  moon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 3a6 6 0 0 0 7.5 7.5A8 8 0 1 1 12 3z"/></svg>',
+  pen: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16z"/></svg>',
+  col: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M5 21V5h14v16M3 21h18M9 8h6M9 12h6M9 16h3"/></svg>',
+  phone: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/></svg>',
+  shirt: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M8 3l-5 3 2 4 2-1v12h10V9l2 1 2-4-5-3a4 4 0 0 1-8 0z"/></svg>',
+  bowl: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 11h18a9 9 0 0 1-18 0zM8 4c0 2 2 2 2 4M13 4c0 2 2 2 2 4"/></svg>',
+  one: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 9h8M8 13h5"/></svg>',
+  door: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 21V3h12v18M3 21h18"/><circle cx="14" cy="12" r=".8" fill="currentColor"/></svg>',
+  alarm: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="13" r="7"/><path d="M12 9v4l2 2M5 4L2 7M19 4l3 3"/></svg>',
+};
+
+DECK.load([
+/* ===================== 1 · HOOK ===================== */
+S.custom(`<div class="sl"><div class="arcbg"></div><div class="kick a">Free live masterclass · Nolan Killeen</div><h2 class="a xl" ${d(.15)}>How young men are going from drifting to <em>disciplined</em> in 5 weeks</h2><p class="sub a" ${d(.45)}>By winning the day before it starts, without relying on willpower, a 5am alarm or another 75-day challenge.</p></div>`),
+S.text('A quick question before we start', 'Discipline is something you\'re either born with or you aren\'t. True or false?', 'Type it in the chat. True or false.'),
+S.text('The answer', 'False, and I can prove it in the next 90 minutes.', null, true),
+S.cards('Here\'s what we\'re covering', 'Three things, and you can start all of them tonight', P.map((p,i)=>[['I.','II.','III.'][i], p, PD[i]])),
+S.chat('Before we get into it', 'Where are you watching from?', 'Drop your city in the chat'),
+
+/* ===================== 2 · PAIN ===================== */
+S.div('', 'Where most men are right now', 'Let\'s be honest about the last few months'),
+S.framed('SWAP:Nolan in bed in the morning, phone in hand, soft light', 'You lose the first hour of the day before you\'re even out of bed', 'Then you lose another one before you sleep.', null, true),
+S.big(480, 'hrs', 'That\'s what 80 minutes a day comes to over a year', 'About twelve full working weeks you never decided to spend.'),
+S.custom(`<div class="sl"><h2 class="a">The Monday loop</h2><div class="loop">${['New routine on Monday','Strong for three days','Life gets busy','Miss one','Back to zero','Feel worse than before'].map((t,i)=>`<span style="--d:${.4+i*.35}">${t}</span>${i<5?`<i style="--d:${.55+i*.35}">→</i>`:''}`).join('')}</div><p class="sub a" ${d(2.8)}>And next Monday it starts again.</p></div>`),
+S.text(null, 'I know exactly what to do. I just don\'t do it.', 'If you\'ve said that to yourself this month, you\'re in the right room.', true),
+S.custom(`<div class="sl"><h2 class="a">Most challenges end the same way</h2><div class="bars">${[100,96,90,84,70,52,30,18,12,9].map((h,i)=>`<div class="${i>5?'off':''}" style="--h:${h}%;--d:${.3+i*.08}"><span>${['D1','D5','D9','D13','D17','D19','D25','D40','D60','D75'][i]}</span></div>`).join('')}</div><p class="sub a" ${d(1.6)}>Strong start, then somewhere around day 19 it quietly stops.</p></div>`),
+S.text(null, 'You save the posts, you read the philosophy, and nothing in your actual day changes', 'That gap between knowing and doing is what we\'re closing tonight.'),
+
+/* ===================== 3 · TEASE ===================== */
+S.div('', 'What you\'ll leave with', 'By the end of tonight'),
+S.row(null, 'You\'ll have three things set up', P.map((p,i)=>[[ico.moon,ico.pen,ico.col][i], p, ['Your night setup, done once','Your own pattern map','Your first rule, written'][i]])),
+S.custom(`<div class="sl"><div class="split" style="width:min(80vw,1000px)"><img class="gift2 blur a" src="${IMG}gift-2-cover.jpg" alt=""><div><div class="kick a" style="justify-content:flex-start">Stay to the end</div><h2 class="a" ${d(.15)}>There's something I'm giving away at the close</h2><p class="sub a" ${d(.35)}>I haven't shared it anywhere else, and it's only for the people who are here at the end.</p></div></div></div>`),
+S.text(null, 'Grab a notebook. There\'s a short exercise in each part.', 'The men who do them live get far more out of tonight than the ones who just watch.'),
+
+/* ===================== 4 · EXCITE ===================== */
+S.div('', 'Picture this', 'A Tuesday, six weeks from now'),
+S.custom(`<div class="sl"><h2 class="a">A normal Tuesday in week six</h2><div class="timeline">${[['6:45','Alarm goes off across the room'],['6:46','You\'re already standing up'],['7:00','Ten minutes with a notebook'],['7:30','Training, already planned'],['9:00','The hard thing is done']].map((t,i)=>`<div class="a ${i===4?'on':''}" style="--d:${.4+i*.3}"><b>${t[0]}</b><span>${t[1]}</span></div>`).join('')}</div></div>`),
+S.custom(`<div class="sl"><h2 class="a">Your phone stays on the charger</h2><div class="room"><div class="bed"></div><div class="desk"></div><div class="phone"></div></div><p class="sub a" ${d(2.6)} style="margin-top:6vh">Because you put it there the night before.</p></div>`),
+S.text(null, 'Nothing about that morning needed you to be a different person', 'It needed the night before to be set up properly.'),
+
+/* ===================== 5 · SOCIAL PROOF / ORIGIN ===================== */
+S.div('', 'Who I am', 'Why I teach this'),
+S.full('nolan.jpg', 'I\'m Nolan', 'I write The Brief every Sunday, and I compete in jiu-jitsu.', '45% 15%'),
+S.framed('SWAP:Nolan boxing in his late teens, gloves on, in the gym', 'I was a competitive athlete through most of my youth, and boxing was the serious one', null),
+S.framed('SWAP:a quieter photo of Nolan around 20, away from the gym', 'At 20 I stepped away from it, because my head wasn\'t in a good place', null, null, true),
+S.text(null, 'Without sport I had no structure at all', 'And a man with no structure just drifts, even when he knows better.'),
+S.polaroid('SWAP:Nolan scrolling his phone late at night', 'Every night, every morning', 'I\'d lose an hour to my phone on each end of the day'),
+S.framed('SWAP:Nolan reading, a philosophy book open on the table', 'So I started reading the people who\'d dealt with this for two thousand years', null),
+S.framed('SWAP:Nolan writing his morning pages, notebook and coffee', 'I started writing every morning, so I could see my own patterns', null, null, true),
+S.art('structure-starter.jpg', 'And I built a structured day, one I could run without thinking', 'I still give the starter version away for free.'),
+S.custom(`<div class="sl"><h2 class="a">Then I started sharing what was working</h2><div class="stat3"><div class="a" ${d(.3)}><b><span class="cnt" data-to="227">0</span>K</b><span>men following on Instagram</span></div><div class="a" ${d(.45)}><b><span class="cnt" data-to="260">0</span>K</b><span>across Instagram, TikTok and Facebook</span></div><div class="a" ${d(.6)}><b><span class="cnt" data-to="23">0</span></b><span>Sunday letters, none missed</span></div></div></div>`, countUp),
+S.art('the-brief.jpg', 'Every Sunday I write one idea and one move', 'It\'s called The Brief, and a lot of what you\'ll hear tonight started there.'),
+S.custom(`<div class="sl"><div class="kick a">One protocol, one post</div><h2 class="a" ${d(.1)}>My 8-Step Focus Protocol</h2><div class="stat3"><div class="a" ${d(.3)}><b><span class="cnt" data-to="2.7">0</span>M</b><span>views</span></div><div class="a" ${d(.45)}><b><span class="cnt" data-to="122">0</span>K</b><span>saves</span></div><div class="a" ${d(.6)}><b><span class="cnt" data-to="20">0</span>K</b><span>new followers</span></div></div><p class="sub a" ${d(.9)}>Men want a structure that works. They just can't find one that holds.</p></div>`, countUp),
+S.polaroid('nolan.jpg', 'Back on the mat', 'And I\'m back competing, on a body I\'ve trained on a plan', '45% 10%'),
+S.text(null, 'A few years ago I was where a lot of you are right now', 'Everything I\'m teaching tonight is what got me out, and what I still do every morning.'),
+
+/* ===================== 6 · PARADIGM ===================== */
+S.div('', 'The one idea', 'Everything tonight rests on this'),
+S.text(null, 'Discipline isn\'t something you have more of. It\'s something you <em>set up</em>.', null, true),
+S.custom(`<div class="sl"><h2 class="a">Willpower is a battery, and it's flat by Wednesday</h2><div class="battery"><i></i></div><div class="days"><span>MON</span><span>TUE</span><span>WED</span><span>THU</span><span>FRI</span></div></div>`),
+S.text('Sun Tzu, The Art of War', 'The victorious warrior wins first, and then goes to war', 'The one who loses goes to war first, and then hopes to win.'),
+S.custom(`<div class="sl"><h2 class="a">So you don't win at 7am. You win at 10pm the night before.</h2><div class="vs" style="grid-template-columns:1fr 1fr"><div class="c myth a" ${d(.4)}><div class="t">Willpower</div><p>Win the same fight every morning, alone, against your phone</p></div><div class="c truth a" ${d(.7)}><div class="t">Win-First</div><p>Set up the night so most mornings there's no fight at all</p></div></div></div>`),
+S.cards('Three beliefs we\'re breaking tonight', 'Why it hasn\'t worked so far', [['I.','I need more willpower','It was never about how much you wanted it.'],['II.','I\'m just not a disciplined person','You\'ve never been shown where you fold.'],['III.','I need to read everything first','You need five rules, not fifty books.']]),
+
+/* ===================== 7 · TRAINING · PILLAR I ===================== */
+S.div('I', 'Pillar one', P[0]),
+S.vs('Pillar one', 'Where your morning is actually decided', 'You need to wake up earlier and push through', 'Your morning was decided the night before, by how you set things up'),
+S.row('The night setup', 'Six moves, set up once', [[ico.phone,'Phone across the room'],[ico.shirt,'Clothes laid out'],[ico.bowl,'Food prepped'],[ico.one,'One hard thing, written'],[ico.door,'Room reset'],[ico.alarm,'Alarm you have to stand for']]),
+S.custom(`<div class="sl"><div class="kick a">Move one</div><h2 class="a" ${d(.1)}>The charger lives across the room</h2><div class="room"><div class="bed"></div><div class="desk"></div><div class="phone"></div></div><p class="sub a" ${d(2.6)} style="margin-top:6vh">You're standing up before you can start scrolling.</p></div>`),
+S.vs(null, 'Remove the battle instead of winning it', 'Keep the junk food and resist it', 'Don\'t keep it in the house'),
+S.framed('SWAP:Nolan\'s kitchen counter with the vitamins next to the kettle', 'I kept forgetting my vitamins, so now they live where I make breakfast', 'I can\'t make food without seeing them. No willpower involved.'),
+S.custom(`<div class="sl"><div class="split" style="width:min(80vw,1000px)"><img class="gift2 a" src="${IMG}gift-1-cover.jpg" alt="" style="transform:rotate(-3deg)"><div><h2 class="a" ${d(.15)}>The whole setup is in the guide you got when you joined</h2><p class="sub a" ${d(.35)}>If you haven't opened it yet, it's pinned in the WhatsApp group.</p></div></div></div>`),
+S.custom(`<div class="sl"><h2 class="a">Make the good thing easy and the bad thing hard</h2><div class="vs" style="grid-template-columns:1fr 1fr"><div class="c truth a" ${d(.35)}><div class="t">Make it easy</div><p>Gym bag by the door, book on your pillow, water on the desk</p></div><div class="c myth a" ${d(.6)} style="opacity:.8"><div class="t">Make it hard</div><p style="text-decoration:none">Apps logged out, phone in a drawer, nothing in the cupboard</p></div></div></div>`),
+S.chat('Your turn', 'What\'s the first thing you touch in the morning?', 'Type <b>1</b> if it\'s your phone'),
+
+/* ===================== 7 · TRAINING · PILLAR II ===================== */
+S.div('II', 'Pillar two', P[1]),
+S.vs('Pillar two', 'Why you fold', 'You\'re just not a disciplined person', 'You lose in the same two or three moments, and you\'ve never written them down'),
+S.custom(`<div class="sl"><div class="kick a">The 10-Minute Recon</div><h2 class="a" ${d(.1)}>Every morning, write whatever's in your head</h2><div class="page">${['Woke up fine, then checked my phone at 6:50.','Felt flat by 11. Skipped lunch again.','Wanted to train, ended up on the sofa at 6.','Alone all evening, scrolled until 1am.'].map((t,i)=>`<p style="--d:${.6+i*1.4}">${t}</p>`).join('')}</div></div>`),
+S.row('Three questions, every time you fold', 'Study the enemy like a general would', [['I.','When?','What time of day'],['II.','Where?','Which room, which place'],['III.','What feeling?','Bored, alone, tired, stressed']]),
+S.custom(`<div class="sl"><h2 class="a">After one week, the pattern shows up</h2><div class="heat"><span></span>${['MON','TUE','WED','THU','FRI','SAT','SUN'].map(x=>`<b>${x}</b>`).join('')}${['Morning','Midday','Evening','Late'].map((r,ri)=>`<b>${r}</b>`+[0,1,2,3,4,5,6].map(c=>{const hot=(ri===3&&c>3)||(ri===2&&c===4)||(ri===0&&c===0);const warm=(ri===3)||(ri===2&&c>4);return `<i class="${hot?'h2':warm?'h1':''}" style="--d:${.3+(ri*7+c)*.04}"></i>`}).join('')).join('')}</div><p class="sub a" ${d(1.8)}>For most men it's late at night, alone, at the end of the week.</p></div>`),
+S.text('From my own Recon', 'I learned that being on my own pulls me off course', 'Now I can see it coming, so I plan for it instead of getting caught off guard.'),
+S.row(null, 'Get ahead of the trigger', [['I.','Spot the pattern','Friday nights, alone'],['II.','Plan the night','Training or a call booked in'],['III.','Remove the trap','Phone out of the bedroom']]),
+S.big(7, 'days', 'Run the Recon for one week before you change anything', 'You\'re just gathering intelligence. That alone puts you ahead.'),
+S.chat('Your turn', 'When do you usually fold?', 'Morning, midday, evening or late?'),
+
+/* ===================== 7 · TRAINING · PILLAR III ===================== */
+S.div('III', 'Pillar three', P[2]),
+S.vs('Pillar three', 'What philosophy is actually for', 'Read everything and hope some of it sticks', 'Take one idea a week and turn it into a rule you live by'),
+S.row('Five teachers, two thousand years apart', 'You don\'t need fifty books', [['M','Marcus Aurelius','Control what you can'],['S','Seneca','Time is all you own'],['S','Sun Tzu','Win before the fight'],['L','Lao Tzu','Effortless action'],['N','Nietzsche','Become who you are']]),
+S.custom(`<div class="sl"><h2 class="a">How one idea becomes a rule</h2><div class="q2r"><div class="q a" ${d(.3)}>Winning without fighting is the height of skill<small>Sun Tzu</small></div><div class="arrow fade" ${d(.8)}>→</div><div class="r a" ${d(1.1)}><small>My rule</small>I don't keep anything in the house I'm trying to stop</div></div></div>`),
+S.custom(`<div class="sl"><h2 class="a">Another one</h2><div class="q2r"><div class="q a" ${d(.3)}>It's not that we have a short time to live, it's that we waste a lot of it<small>Seneca</small></div><div class="arrow fade" ${d(.8)}>→</div><div class="r a" ${d(1.1)}><small>My rule</small>The first hour of the day is mine, not my phone's</div></div></div>`),
+S.custom(`<div class="sl"><div class="code a"><h3>My Code</h3><ol>${['The first hour is mine.','Win the night before.','Train, even when it\'s short.','Write before I react.','Choose my battles on purpose.'].map((r,i)=>`<li class="a" style="--d:${.4+i*.25}">${r}</li>`).join('')}</ol></div><p class="sub a" ${d(1.8)}>Five rules. That's all it takes to know who you are on a bad day.</p></div>`),
+S.text('Choose your battles', 'My ambition pulls me in ten directions at once', 'So one of my rules is to pick the one or two things that matter, and let the rest go past.'),
+S.framed('SWAP:Nolan\'s written code on the wall above his desk', 'Write it down and put it where you\'ll see it every day', 'I keep a few lines on the wall to keep me level.', null, true),
+S.chat('Your turn', 'Write your first rule now', 'Drop it in the chat if you\'re happy to share'),
+
+/* ===================== 8 · COMMITMENT ===================== */
+S.text(null, 'Does it make sense why willpower kept running out?', 'Type <em>yes</em> in the chat if it does.'),
+S.text(null, 'Can you picture running this week after week?', 'Not perfectly. Just most days, with the fight already won.'),
+S.chat(null, 'If you could set this up and keep it, would that change your year?', 'Drop a <b>yes</b>'),
+
+/* ===================== 9 · TRANSITION ===================== */
+S.div('', 'Here\'s the whole game', 'Everything in one picture'),
+S.row(null, 'Win-First Structure', P.map((p,i)=>[[ico.moon,ico.pen,ico.col][i], p, ['Decide tomorrow tonight','See where you fold','Know what you stand for'][i]])),
+S.custom(`<div class="sl"><h2 class="a">If nothing changes, where are you in five weeks?</h2><div class="timeline" style="width:min(80vw,960px)">${[['Today','Same phone, same mornings'],['Week 2','Another restart'],['Week 4','Another quit'],['Week 5','Same place, still waiting for Monday']].map((t,i)=>`<div class="a" style="--d:${.4+i*.3}"><b>${t[0]}</b><span>${t[1]}</span></div>`).join('')}</div></div>`),
+S.cards('From here, there are three paths', 'Which one is yours?', [['I.','Do nothing','Close this tab and hope next Monday is different.'],['II.','Do it alone','Take tonight\'s notes and try to run it by yourself.'],['III.','Let me help you run it','Five weeks, one-on-one with me.']], 2),
+S.text(null, 'Heads up. In a minute I\'m going to tell you how you can work with me.', 'If that\'s not for you, no problem. Stay for the gift at the end.'),
+
+/* ===================== 10 · OFFER ===================== */
+S.custom(`<div class="sl"><div class="arcbg"></div><div class="kick a">Introducing</div><h2 class="a xl" ${d(.15)} style="text-transform:uppercase;letter-spacing:.04em"><em style="text-transform:none;font-size:.5em;display:block">Becoming</em>Whole</h2><p class="sub a" ${d(.45)}>A 5-week one-on-one mentorship. The Three Priorities Method.</p></div>`),
+S.text(null, 'In five weeks you go from pulled in every direction to clear on what matters now', 'Three priorities across career, fitness and study, and a weekly rhythm that holds.'),
+S.row('The 5 weeks', 'From the prep phase to a week you can repeat', [['I.','Week 1','The Prep Phase'],['II.','Week 2','Choose the Three'],['III.','Week 3','A Theme for the Month'],['IV.','Week 4','Build the Weekly Phase'],['V.','Week 5','Review and Adjust']]),
+S.stack('Here\'s what you get', STACK, 1),
+S.stack('Here\'s what you get', STACK, 2, 'Every step works on your real commitments, your job, your training and your study, not a template.'),
+S.stack('Here\'s what you get', STACK, 3),
+S.stack('Here\'s what you get', STACK, 4),
+S.stack('Here\'s what you get', STACK, 5),
+S.stack('All of it, together', STACK, 6),
+
+/* ===================== 11 · PRICE ===================== */
+S.text('What it\'s worth', 'What would another wasted year cost you?', 'Not in money. In the version of you that doesn\'t get built.'),
+S.text(null, 'There\'s no sales call', 'You apply, I read it myself, and if you\'re one of the ten you get an email with the price and everything you need to start.'),
+
+/* ===================== 12 · BONUSES ===================== */
+S.custom(`<div class="sl"><div class="kick a">On top of that</div><h2 class="a" ${d(.1)}>You also get</h2><div class="chips">${['The Philosophers\' Vault','A weekly live group call with the founding ten'].map((c,i)=>`<span class="a" style="--d:${.3+i*.15}">${c}</span>`).join('')}</div></div>`),
+S.custom(`<div class="sl"><div class="split" style="width:min(80vw,1000px)"><img class="gift2 a" src="${IMG}gift-2-cover.jpg" alt=""><div><div class="kick a" style="justify-content:flex-start">For staying to the end</div><h2 class="a" ${d(.15)}>The Personal Code Workbook</h2><p class="sub a" ${d(.35)}>Thirty prompts across five philosophers, my own code as a worked example, and a card for your wall. It's yours free, linked under the replay.</p></div></div></div>`),
+S.text(null, 'Write your five rules this week, whether or not you join', 'It\'s the fastest way to know who you are on a bad day.'),
+
+/* ===================== 13 · RISK REVERSAL ===================== */
+S.custom(`<div class="sl"><div class="arcbg"></div><div class="a" style="width:120px;height:120px;border-radius:50%;border:1px solid var(--gold);display:grid;place-items:center;font-family:var(--display);font-size:44px;color:var(--gold-2);box-shadow:0 0 0 8px rgba(200,169,106,.08)">3</div><h2 class="a" ${d(.2)} style="margin-top:4vh">It plans for your bad weeks</h2><p class="sub a" ${d(.4)}>Every plan you've quit assumed you'd stay intense. Yours has a minimum viable week, a floor you can hold when life gets hard, so a bad week never turns into starting over.</p></div>`),
+S.text(null, 'Applying is free, and there\'s no obligation', 'If it\'s not the right fit, I\'ll tell you straight.'),
+
+/* ===================== 14 · URGENCY ===================== */
+S.custom(`<div class="sl"><h2 class="a">Ten founding places</h2><div class="seats">${Array.from({length:10},(_,i)=>`<i style="--d:${.3+i*.08}"></i>`).join('')}</div><p class="sub a" ${d(1.2)}>This first intake is one-on-one with me. Once the method is proven, it moves to recorded lessons and group coaching. The founding ten are the only men who get me one-on-one.</p></div>`),
+S.text('Why now', 'Every month you wing in your twenties is one you don\'t get back', 'Five weeks from now, you could already be running it.'),
+S.custom(S.row('What happens next', 'Three steps', [['I.','Apply tonight','Three quick questions, link in the chat'],['II.','I read every one','Ten men get an invite'],['III.','Start week one','The prep phase, with me']]).replace(/<\/div>$/, `${applyLink(1.2)}<p class="sub a" ${d(1.4)}>Missed it tonight? The application is under the replay too.</p></div>`)),
+S.custom(`<div class="sl"><div class="arcbg"></div><h2 class="a xl">Win the day before it starts</h2><p class="sub a" ${d(.4)}>Apply tonight, and I'll see you in week one.</p>${applyLink(.6)}<p class="sub a" ${d(.8)} style="font-size:clamp(13px,1.2vw,16px)">Can't do it now? The application stays under the replay.</p><div class="kick a" style="--d:1;margin-top:6vh">Nolan Killeen · Body · Mind · Character</div></div>`),
+]);
+</script>
+</body>
+</html>
