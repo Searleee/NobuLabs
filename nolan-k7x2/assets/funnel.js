@@ -1,4 +1,4 @@
-/* Becoming Whole funnel · shared behaviour: reveals (.rv / .rv-stagger) */
+/* Living Telos funnel · shared behaviour: reveals (.rv / .rv-stagger) */
 (function () {
   var els = document.querySelectorAll(".rv, .rv-stagger");
   /* ?shot renders everything in its finished state (thumbnails / OG captures) */

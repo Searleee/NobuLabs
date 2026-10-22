@@ -1,5 +1,5 @@
 /* =========================================================================
-   Nolan Killeen × Becoming Whole · pitch-site motion layer
+   Nolan Killeen × Living Telos · pitch-site motion layer
    Lenis smooth scroll · headline reveal · scroll choreography · card
    spotlight · morph-lightbox · sticky CTA · video parallax
    ========================================================================= */

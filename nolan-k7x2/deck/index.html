@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Becoming Whole · Masterclass presentation</title>
+<title>The Lock-In Session · Live presentation</title>
   <link rel="icon" href="../assets/img/favicon.png" type="image/png" />
   <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png" />
 <link rel="stylesheet" href="../assets/funnel.css">
@@ -233,7 +233,7 @@ const S = {
   row: (kick, h, nodes) => `<div class="sl">${kick?`<div class="kick a">${kick}</div>`:''}<h2 class="a" ${d(.1)}>${h}</h2><div class="row">${nodes.map((n,i)=>`<div class="node a" ${d(.4+i*.18)}><div class="o">${n[0]}</div><b>${n[1]}</b>${n[2]?`<span>${n[2]}</span>`:''}</div>`).join('')}</div></div>`,
   cards: (kick, h, cs, on) => `<div class="sl">${kick?`<div class="kick a">${kick}</div>`:''}<h2 class="a" ${d(.1)}>${h}</h2><div class="cards">${cs.map((c,i)=>`<div class="cardx a ${on===i?'on':''}" ${d(.35+i*.15)}><div class="i">${c[0]}</div><b>${c[1]}</b>${c[2]?`<span>${c[2]}</span>`:''}</div>`).join('')}</div></div>`,
   chat: (kick, h, prompt) => `<div class="sl"><div class="arcbg"></div>${kick?`<div class="kick a">${kick}</div>`:''}<h2 class="a" ${d(.1)}>${h}</h2><div class="chat a" ${d(.4)}><span class="dot"></span>${prompt}</div></div>`,
-  stack: (h, items, upto, sub) => `<div class="sl"><div class="kick a">Becoming Whole</div><h2 class="a" ${d(.1)} style="font-size:clamp(24px,3.4vw,48px)">${h}</h2><div class="stack">${items.slice(0,upto).map((it,i)=>`<div class="${upto>items.length?'':(i===upto-1?'new a':'dim')}" ${i===upto-1?d(.3):''}><i>${['i.','ii.','iii.','iv.','v.'][i]}</i>${it[0]}${it[1]?'<span class="flag">The unfair advantage</span>':''}</div>`).join('')}</div>${sub?`<p class="sub a" ${d(.5)}>${sub}</p>`:''}</div>`,
+  stack: (h, items, upto, sub) => `<div class="sl"><div class="kick a">Living Telos</div><h2 class="a" ${d(.1)} style="font-size:clamp(24px,3.4vw,48px)">${h}</h2><div class="stack">${items.slice(0,upto).map((it,i)=>`<div class="${upto>items.length?'':(i===upto-1?'new a':'dim')}" ${i===upto-1?d(.3):''}><i>${['i.','ii.','iii.','iv.','v.'][i]}</i>${it[0]}${it[1]?'<span class="flag">The unfair advantage</span>':''}</div>`).join('')}</div>${sub?`<p class="sub a" ${d(.5)}>${sub}</p>`:''}</div>`,
   custom: (html, onMount) => onMount ? { html, onMount } : html,
 };
 function countUp(el, { reduced }){
@@ -244,14 +244,14 @@ function countUp(el, { reduced }){
     (function tick(now){ const p = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - p, 3); n.textContent = fmt(end * e); if (p < 1) requestAnimationFrame(tick); })(t0);
   });
 }
-/* application link: label is what shows on screen live, href is where it goes. Paste the same link in the chat. */
-const APPLY = { label: 'nolankilleen.com/apply', href: '../replay/index.html#apply' };
-const applyLink = (delay) => `<a class="chat a" ${d(delay)} href="${APPLY.href}" target="_blank" rel="noopener"><span class="dot"></span>Apply now: <b>${APPLY.label}</b></a>`;
-const P = ['Build a Win-First Day', 'Run the 10-Minute Recon', 'Write Your Personal Code'];
-const PD = ['Set up your room, phone and evening so tomorrow\'s hard thing is decided before you wake up.',
-            'The morning page method that shows you exactly when you fold, so you get ahead of it.',
-            'Turn Marcus Aurelius, Sun Tzu and the Tao into five rules you live by every day.'];
-const STACK = [['Five live one-on-one sessions with me'], ['A plan built around your actual life', true], ['The Three Priorities Planner'], ['The Weekly Scorecard'], ['A worksheet every week']];
+/* join link: label is what shows on screen live, href is where it goes. Paste the same link in the chat. */
+const JOIN = { label: 'whop.com/living-telos', href: '../replay/index.html#join' };
+const joinLink = (delay) => `<a class="chat a" ${d(delay)} href="${JOIN.href}" target="_blank" rel="noopener"><span class="dot"></span>Join the founding cohort: <b>${JOIN.label}</b></a>`;
+const P = ['Find Your Telos', 'Lock In on Demand', 'Hold the Line Past Week Three'];
+const PD = ['Turn a vague plan into a reason that still holds on the days you don\'t feel like it.',
+            'The room, phone and first-hour setup that gets you into deep work without waiting for motivation.',
+            'Why most plans die around day 18, and the minimum viable day that keeps yours alive.'];
+const STACK = [['Seven video modules on the three pillars'], ['A cohort of men doing it beside you, with a daily check-in', true], ['Two live calls with me, on day one and day seventeen'], ['The Living Telos Notion workspace and field manual'], ['The Sunday Review GPT']];
 const ico = {
   moon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 3a6 6 0 0 0 7.5 7.5A8 8 0 1 1 12 3z"/></svg>',
   pen: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16z"/></svg>',
@@ -266,9 +266,9 @@ const ico = {
 
 DECK.load([
 /* ===================== 1 · HOOK ===================== */
-S.custom(`<div class="sl"><div class="arcbg"></div><div class="kick a">Free live masterclass · Nolan Killeen</div><h2 class="a xl" ${d(.15)}>How young men are going from drifting to <em>disciplined</em> in 5 weeks</h2><p class="sub a" ${d(.45)}>By winning the day before it starts, without relying on willpower, a 5am alarm or another 75-day challenge.</p></div>`),
-S.text('A quick question before we start', 'Discipline is something you\'re either born with or you aren\'t. True or false?', 'Type it in the chat. True or false.'),
-S.text('The answer', 'False, and I can prove it in the next 90 minutes.', null, true),
+S.custom(`<div class="sl"><div class="arcbg"></div><div class="kick a">The Lock-In Session · Nolan Killeen</div><h2 class="a xl" ${d(.15)}>How young men are locking in for <em>30 days straight</em></h2><p class="sub a" ${d(.45)}>By deciding the fight before it starts, without relying on motivation, a 5am alarm or another 75-day challenge.</p></div>`),
+S.text('A quick question before we start', 'Some men are just disciplined and some aren\'t. True or false?', 'Type it in the chat. True or false.'),
+S.text('The answer', 'False, and by the end of tonight you\'ll see why.', null, true),
 S.cards('Here\'s what we\'re covering', 'Three things, and you can start all of them tonight', P.map((p,i)=>[['I.','II.','III.'][i], p, PD[i]])),
 S.chat('Before we get into it', 'Where are you watching from?', 'Drop your city in the chat'),
 
@@ -276,121 +276,115 @@ S.chat('Before we get into it', 'Where are you watching from?', 'Drop your city 
 S.div('', 'Where most men are right now', 'Let\'s be honest about the last few months'),
 S.framed('SWAP:Nolan in bed in the morning, phone in hand, soft light', 'You lose the first hour of the day before you\'re even out of bed', 'Then you lose another one before you sleep.', null, true),
 S.big(480, 'hrs', 'That\'s what 80 minutes a day comes to over a year', 'About twelve full working weeks you never decided to spend.'),
-S.custom(`<div class="sl"><h2 class="a">The Monday loop</h2><div class="loop">${['New routine on Monday','Strong for three days','Life gets busy','Miss one','Back to zero','Feel worse than before'].map((t,i)=>`<span style="--d:${.4+i*.35}">${t}</span>${i<5?`<i style="--d:${.55+i*.35}">→</i>`:''}`).join('')}</div><p class="sub a" ${d(2.8)}>And next Monday it starts again.</p></div>`),
+S.custom(`<div class="sl"><h2 class="a">The Monday loop</h2><div class="loop">${['Make a plan on Sunday','Strong for a week','Life gets busy','Miss two days','Plan goes in a drawer','Feel worse than before'].map((t,i)=>`<span style="--d:${.4+i*.35}">${t}</span>${i<5?`<i style="--d:${.55+i*.35}">→</i>`:''}`).join('')}</div><p class="sub a" ${d(2.8)}>And next Sunday you make a new one.</p></div>`),
 S.text(null, 'I know exactly what to do. I just don\'t do it.', 'If you\'ve said that to yourself this month, you\'re in the right room.', true),
-S.custom(`<div class="sl"><h2 class="a">Most challenges end the same way</h2><div class="bars">${[100,96,90,84,70,52,30,18,12,9].map((h,i)=>`<div class="${i>5?'off':''}" style="--h:${h}%;--d:${.3+i*.08}"><span>${['D1','D5','D9','D13','D17','D19','D25','D40','D60','D75'][i]}</span></div>`).join('')}</div><p class="sub a" ${d(1.6)}>Strong start, then somewhere around day 19 it quietly stops.</p></div>`),
-S.text(null, 'You save the posts, you read the philosophy, and nothing in your actual day changes', 'That gap between knowing and doing is what we\'re closing tonight.'),
+S.custom(`<div class="sl"><h2 class="a">Most plans end the same way</h2><div class="bars">${[100,96,90,84,70,52,30,18,12,9].map((h,i)=>`<div class="${i>5?'off':''}" style="--h:${h}%;--d:${.3+i*.08}"><span>${['D1','D3','D6','D9','D13','D16','D18','D21','D25','D30'][i]}</span></div>`).join('')}</div><p class="sub a" ${d(1.6)}>A strong first fortnight, then somewhere around day 18 it quietly stops.</p></div>`),
+S.text(null, 'The plan was never the problem', 'Most of you already have one. What you don\'t have is a way to keep living it once the motivation wears off.'),
 
 /* ===================== 3 · TEASE ===================== */
 S.div('', 'What you\'ll leave with', 'By the end of tonight'),
-S.row(null, 'You\'ll have three things set up', P.map((p,i)=>[[ico.moon,ico.pen,ico.col][i], p, ['Your night setup, done once','Your own pattern map','Your first rule, written'][i]])),
-S.custom(`<div class="sl"><div class="split" style="width:min(80vw,1000px)"><img class="gift2 blur a" src="${IMG}gift-2-cover.jpg" alt=""><div><div class="kick a" style="justify-content:flex-start">Stay to the end</div><h2 class="a" ${d(.15)}>There's something I'm giving away at the close</h2><p class="sub a" ${d(.35)}>I haven't shared it anywhere else, and it's only for the people who are here at the end.</p></div></div></div>`),
+S.row(null, 'You\'ll have three things set up', P.map((p,i)=>[[ico.col,ico.phone,ico.alarm][i], p, ['Your reason, written down','Tomorrow\'s first hour, set up','Your minimum viable day'][i]])),
+S.custom(`<div class="sl"><div class="split" style="width:min(80vw,1000px)"><img class="gift2 blur a" src="${IMG}gift-2-cover.jpg" alt=""><div><div class="kick a" style="justify-content:flex-start">Stay to the end</div><h2 class="a" ${d(.15)}>There's something I'm giving away at the close</h2><p class="sub a" ${d(.35)}>It's only for the men who are here when we finish.</p></div></div></div>`),
 S.text(null, 'Grab a notebook. There\'s a short exercise in each part.', 'The men who do them live get far more out of tonight than the ones who just watch.'),
 
 /* ===================== 4 · EXCITE ===================== */
-S.div('', 'Picture this', 'A Tuesday, six weeks from now'),
-S.custom(`<div class="sl"><h2 class="a">A normal Tuesday in week six</h2><div class="timeline">${[['6:45','Alarm goes off across the room'],['6:46','You\'re already standing up'],['7:00','Ten minutes with a notebook'],['7:30','Training, already planned'],['9:00','The hard thing is done']].map((t,i)=>`<div class="a ${i===4?'on':''}" style="--d:${.4+i*.3}"><b>${t[0]}</b><span>${t[1]}</span></div>`).join('')}</div></div>`),
+S.div('', 'Picture this', 'Day 30, a Tuesday in January'),
+S.custom(`<div class="sl"><h2 class="a">A normal workday on day 30</h2><div class="timeline">${[['6:45','Alarm goes off across the room'],['7:00','Ten minutes with a notebook'],['7:15','One lock-in block before work'],['18:30','Training, already planned'],['22:00','Tomorrow written down']].map((t,i)=>`<div class="a ${i===4?'on':''}" style="--d:${.4+i*.3}"><b>${t[0]}</b><span>${t[1]}</span></div>`).join('')}</div></div>`),
 S.custom(`<div class="sl"><h2 class="a">Your phone stays on the charger</h2><div class="room"><div class="bed"></div><div class="desk"></div><div class="phone"></div></div><p class="sub a" ${d(2.6)} style="margin-top:6vh">Because you put it there the night before.</p></div>`),
-S.text(null, 'Nothing about that morning needed you to be a different person', 'It needed the night before to be set up properly.'),
+S.text(null, 'Thirty days kept, around a full-time job', 'Not perfect days. Eighty percent of them, which is more than you\'ve ever kept before.'),
 
-/* ===================== 5 · SOCIAL PROOF / ORIGIN ===================== */
+/* ===================== 5 · ORIGIN ===================== */
 S.div('', 'Who I am', 'Why I teach this'),
-S.full('nolan.jpg', 'I\'m Nolan', 'I write The Brief every Sunday, and I compete in jiu-jitsu.', '45% 15%'),
+S.full('nolan.jpg', 'I\'m Nolan', 'I write The Brief every Sunday, I work a full-time job, and I compete in jiu-jitsu.', '45% 15%'),
 S.framed('SWAP:Nolan boxing in his late teens, gloves on, in the gym', 'I was a competitive athlete through most of my youth, and boxing was the serious one', null),
 S.framed('SWAP:a quieter photo of Nolan around 20, away from the gym', 'At 20 I stepped away from it, because my head wasn\'t in a good place', null, null, true),
-S.text(null, 'Without sport I had no structure at all', 'And a man with no structure just drifts, even when he knows better.'),
+S.text(null, 'Without sport I had no structure and no reason to keep any', 'And a man with no aim just drifts, even when he knows better.'),
 S.polaroid('SWAP:Nolan scrolling his phone late at night', 'Every night, every morning', 'I\'d lose an hour to my phone on each end of the day'),
 S.framed('SWAP:Nolan reading, a philosophy book open on the table', 'So I started reading the people who\'d dealt with this for two thousand years', null),
-S.framed('SWAP:Nolan writing his morning pages, notebook and coffee', 'I started writing every morning, so I could see my own patterns', null, null, true),
-S.art('structure-starter.jpg', 'And I built a structured day, one I could run without thinking', 'I still give the starter version away for free.'),
-S.custom(`<div class="sl"><h2 class="a">Then I started sharing what was working</h2><div class="stat3"><div class="a" ${d(.3)}><b><span class="cnt" data-to="227">0</span>K</b><span>men following on Instagram</span></div><div class="a" ${d(.45)}><b><span class="cnt" data-to="260">0</span>K</b><span>across Instagram, TikTok and Facebook</span></div><div class="a" ${d(.6)}><b><span class="cnt" data-to="23">0</span></b><span>Sunday letters, none missed</span></div></div></div>`, countUp),
-S.art('the-brief.jpg', 'Every Sunday I write one idea and one move', 'It\'s called The Brief, and a lot of what you\'ll hear tonight started there.'),
-S.custom(`<div class="sl"><div class="kick a">One protocol, one post</div><h2 class="a" ${d(.1)}>My 8-Step Focus Protocol</h2><div class="stat3"><div class="a" ${d(.3)}><b><span class="cnt" data-to="2.7">0</span>M</b><span>views</span></div><div class="a" ${d(.45)}><b><span class="cnt" data-to="122">0</span>K</b><span>saves</span></div><div class="a" ${d(.6)}><b><span class="cnt" data-to="20">0</span>K</b><span>new followers</span></div></div><p class="sub a" ${d(.9)}>Men want a structure that works. They just can't find one that holds.</p></div>`, countUp),
+S.art('structure-starter.jpg', 'Then I built a planning system I could actually run', 'The Structure Starter. A lot of you already have it, for free.'),
+S.custom(`<div class="sl"><h2 class="a">Then I started sharing what was working</h2><div class="stat3"><div class="a" ${d(.3)}><b><span class="cnt" data-to="256">0</span>K</b><span>men following on Instagram</span></div><div class="a" ${d(.45)}><b><span class="cnt" data-to="289">0</span>K</b><span>across Instagram, TikTok and Facebook</span></div><div class="a" ${d(.6)}><b><span class="cnt" data-to="23">0</span></b><span>Sunday letters, none missed</span></div></div></div>`, countUp),
+S.custom(`<div class="sl"><div class="kick a">One protocol, one post</div><h2 class="a" ${d(.1)}>My 8-Step Focus Protocol</h2><div class="stat3"><div class="a" ${d(.3)}><b><span class="cnt" data-to="2.7">0</span>M</b><span>views</span></div><div class="a" ${d(.45)}><b><span class="cnt" data-to="122">0</span>K</b><span>saves</span></div><div class="a" ${d(.6)}><b><span class="cnt" data-to="20">0</span>K</b><span>new followers</span></div></div><p class="sub a" ${d(.9)}>Men want a way to lock in. Saving the post isn't the same as doing it.</p></div>`, countUp),
 S.polaroid('nolan.jpg', 'Back on the mat', 'And I\'m back competing, on a body I\'ve trained on a plan', '45% 10%'),
-S.text(null, 'A few years ago I was where a lot of you are right now', 'Everything I\'m teaching tonight is what got me out, and what I still do every morning.'),
+S.text(null, 'A few years ago I was where a lot of you are right now', 'Everything I\'m teaching tonight is what got me out, and what I still do around a job every day.'),
 
 /* ===================== 6 · PARADIGM ===================== */
 S.div('', 'The one idea', 'Everything tonight rests on this'),
 S.text(null, 'Discipline isn\'t something you have more of. It\'s something you <em>set up</em>.', null, true),
-S.custom(`<div class="sl"><h2 class="a">Willpower is a battery, and it's flat by Wednesday</h2><div class="battery"><i></i></div><div class="days"><span>MON</span><span>TUE</span><span>WED</span><span>THU</span><span>FRI</span></div></div>`),
+S.custom(`<div class="sl"><h2 class="a">Motivation is a battery, and it's flat by week three</h2><div class="battery"><i></i></div><div class="days"><span>WK 1</span><span>WK 2</span><span>WK 3</span><span>WK 4</span><span>WK 5</span></div></div>`),
 S.text('Sun Tzu, The Art of War', 'The victorious warrior wins first, and then goes to war', 'The one who loses goes to war first, and then hopes to win.'),
-S.custom(`<div class="sl"><h2 class="a">So you don't win at 7am. You win at 10pm the night before.</h2><div class="vs" style="grid-template-columns:1fr 1fr"><div class="c myth a" ${d(.4)}><div class="t">Willpower</div><p>Win the same fight every morning, alone, against your phone</p></div><div class="c truth a" ${d(.7)}><div class="t">Win-First</div><p>Set up the night so most mornings there's no fight at all</p></div></div></div>`),
-S.cards('Three beliefs we\'re breaking tonight', 'Why it hasn\'t worked so far', [['I.','I need more willpower','It was never about how much you wanted it.'],['II.','I\'m just not a disciplined person','You\'ve never been shown where you fold.'],['III.','I need to read everything first','You need five rules, not fifty books.']]),
+S.custom(`<div class="sl"><h2 class="a">So you don't win at 7am. You win the night before, and you win it for a reason.</h2><div class="vs" style="grid-template-columns:1fr 1fr"><div class="c myth a" ${d(.4)}><div class="t">Motivation</div><p>Fight the same fight every morning, alone, and hope you feel like it</p></div><div class="c truth a" ${d(.7)}><div class="t">Locked in</div><p>Know why, set up the conditions, and have men beside you when it gets hard</p></div></div></div>`),
+S.cards('Three beliefs we\'re breaking tonight', 'Why it hasn\'t worked so far', [['I.','I need more motivation','You need a reason, which is different.'],['II.','I\'m just not a focused person','Your room and your phone decide that, not you.'],['III.','If I miss a day, I\'ve failed','Eighty percent is the target. Missing is part of it.']]),
 
-/* ===================== 7 · TRAINING · PILLAR I ===================== */
+/* ===================== 7 · PILLAR I · FIND YOUR TELOS ===================== */
 S.div('I', 'Pillar one', P[0]),
-S.vs('Pillar one', 'Where your morning is actually decided', 'You need to wake up earlier and push through', 'Your morning was decided the night before, by how you set things up'),
-S.row('The night setup', 'Six moves, set up once', [[ico.phone,'Phone across the room'],[ico.shirt,'Clothes laid out'],[ico.bowl,'Food prepped'],[ico.one,'One hard thing, written'],[ico.door,'Room reset'],[ico.alarm,'Alarm you have to stand for']]),
-S.custom(`<div class="sl"><div class="kick a">Move one</div><h2 class="a" ${d(.1)}>The charger lives across the room</h2><div class="room"><div class="bed"></div><div class="desk"></div><div class="phone"></div></div><p class="sub a" ${d(2.6)} style="margin-top:6vh">You're standing up before you can start scrolling.</p></div>`),
-S.vs(null, 'Remove the battle instead of winning it', 'Keep the junk food and resist it', 'Don\'t keep it in the house'),
-S.framed('SWAP:Nolan\'s kitchen counter with the vitamins next to the kettle', 'I kept forgetting my vitamins, so now they live where I make breakfast', 'I can\'t make food without seeing them. No willpower involved.'),
-S.custom(`<div class="sl"><div class="split" style="width:min(80vw,1000px)"><img class="gift2 a" src="${IMG}gift-1-cover.jpg" alt="" style="transform:rotate(-3deg)"><div><h2 class="a" ${d(.15)}>The whole setup is in the guide you got when you joined</h2><p class="sub a" ${d(.35)}>If you haven't opened it yet, it's pinned in the WhatsApp group.</p></div></div></div>`),
-S.custom(`<div class="sl"><h2 class="a">Make the good thing easy and the bad thing hard</h2><div class="vs" style="grid-template-columns:1fr 1fr"><div class="c truth a" ${d(.35)}><div class="t">Make it easy</div><p>Gym bag by the door, book on your pillow, water on the desk</p></div><div class="c myth a" ${d(.6)} style="opacity:.8"><div class="t">Make it hard</div><p style="text-decoration:none">Apps logged out, phone in a drawer, nothing in the cupboard</p></div></div></div>`),
-S.chat('Your turn', 'What\'s the first thing you touch in the morning?', 'Type <b>1</b> if it\'s your phone'),
+S.text('Aristotle', 'Telos means the end a thing is for', 'An acorn\'s telos is the oak. Yours is the man you\'re trying to become.'),
+S.vs('Pillar one', 'Why you drift', 'You\'re lazy, or you don\'t want it enough', 'Your aim is too vague to pull you out of bed on a tired Tuesday'),
+S.text('Nietzsche', 'He who has a why to live for can bear almost any how', 'The routine is the how. Tonight we start with the why.'),
+S.custom(`<div class="sl"><h2 class="a">A vision versus a telos</h2><div class="q2r"><div class="q a" ${d(.3)}>I want to get my life together<small>A wish</small></div><div class="arrow fade" ${d(.8)}>→</div><div class="r a" ${d(1.1)}><small>A telos</small>In a year I'm the man my younger brother copies: trained, calm, and building something of my own</div></div></div>`),
+S.row('Three questions', 'Write your telos in ten minutes', [['I.','Who?','The man you\'re becoming in a year'],['II.','Why?','Who\'s watching, and what it costs if you don\'t'],['III.','Today?','The one thing that man does daily']]),
+S.custom(`<div class="sl"><div class="code a"><h3>This month</h3><ol>${['Theme: Consistency.','I am someone who keeps his word to himself.','Lock in before work, every weekday.'].map((r,i)=>`<li class="a" style="--d:${.4+i*.3}">${r}</li>`).join('')}</ol></div><p class="sub a" ${d(1.6)}>A theme, an identity and one daily act. That's the whole of it.</p></div>`),
+S.chat('Your turn', 'Finish this sentence: in a year, I\'m the man who...', 'Drop it in the chat if you\'re happy to share'),
 
-/* ===================== 7 · TRAINING · PILLAR II ===================== */
+/* ===================== 7 · PILLAR II · LOCK IN ON DEMAND ===================== */
 S.div('II', 'Pillar two', P[1]),
-S.vs('Pillar two', 'Why you fold', 'You\'re just not a disciplined person', 'You lose in the same two or three moments, and you\'ve never written them down'),
-S.custom(`<div class="sl"><div class="kick a">The 10-Minute Recon</div><h2 class="a" ${d(.1)}>Every morning, write whatever's in your head</h2><div class="page">${['Woke up fine, then checked my phone at 6:50.','Felt flat by 11. Skipped lunch again.','Wanted to train, ended up on the sofa at 6.','Alone all evening, scrolled until 1am.'].map((t,i)=>`<p style="--d:${.6+i*1.4}">${t}</p>`).join('')}</div></div>`),
-S.row('Three questions, every time you fold', 'Study the enemy like a general would', [['I.','When?','What time of day'],['II.','Where?','Which room, which place'],['III.','What feeling?','Bored, alone, tired, stressed']]),
-S.custom(`<div class="sl"><h2 class="a">After one week, the pattern shows up</h2><div class="heat"><span></span>${['MON','TUE','WED','THU','FRI','SAT','SUN'].map(x=>`<b>${x}</b>`).join('')}${['Morning','Midday','Evening','Late'].map((r,ri)=>`<b>${r}</b>`+[0,1,2,3,4,5,6].map(c=>{const hot=(ri===3&&c>3)||(ri===2&&c===4)||(ri===0&&c===0);const warm=(ri===3)||(ri===2&&c>4);return `<i class="${hot?'h2':warm?'h1':''}" style="--d:${.3+(ri*7+c)*.04}"></i>`}).join('')).join('')}</div><p class="sub a" ${d(1.8)}>For most men it's late at night, alone, at the end of the week.</p></div>`),
-S.text('From my own Recon', 'I learned that being on my own pulls me off course', 'Now I can see it coming, so I plan for it instead of getting caught off guard.'),
-S.row(null, 'Get ahead of the trigger', [['I.','Spot the pattern','Friday nights, alone'],['II.','Plan the night','Training or a call booked in'],['III.','Remove the trap','Phone out of the bedroom']]),
-S.big(7, 'days', 'Run the Recon for one week before you change anything', 'You\'re just gathering intelligence. That alone puts you ahead.'),
-S.chat('Your turn', 'When do you usually fold?', 'Morning, midday, evening or late?'),
+S.vs('Pillar two', 'Where focus actually comes from', 'You need to feel focused before you start', 'You start, in a room that\'s been set up, and the focus follows'),
+S.row('The lock-in setup', 'Six moves, set up once', [[ico.phone,'Phone in another room'],[ico.one,'One task, written'],[ico.door,'Door shut'],[ico.alarm,'A timer you can see'],[ico.shirt,'Same seat, same time'],[ico.bowl,'Water and food ready']]),
+S.custom(`<div class="sl"><div class="kick a">Move one</div><h2 class="a" ${d(.1)}>The phone lives in another room</h2><div class="room"><div class="bed"></div><div class="desk"></div><div class="phone"></div></div><p class="sub a" ${d(2.6)} style="margin-top:6vh">You can't check what you can't reach.</p></div>`),
+S.vs(null, 'Remove the battle instead of winning it', 'Keep the phone on the desk and resist it', 'Don\'t let it in the room'),
+S.custom(`<div class="sl"><h2 class="a">Find your best window</h2><div class="heat"><span></span>${['MON','TUE','WED','THU','FRI','SAT','SUN'].map(x=>`<b>${x}</b>`).join('')}${['Early','Work hours','Evening','Late'].map((r,ri)=>`<b>${r}</b>`+[0,1,2,3,4,5,6].map(c=>{const hot=(ri===0&&c<5)||(ri===1&&c>4);const warm=(ri===2&&c<4);return `<i class="${hot?'h2':warm?'h1':''}" style="--d:${.3+(ri*7+c)*.04}"></i>`}).join('')).join('')}</div><p class="sub a" ${d(1.8)}>With a job, most men get one good window a day. Protect it like a meeting you can't move.</p></div>`),
+S.big(90, 'min', 'One lock-in block a day is enough to change a year', 'Ninety minutes on the thing that matters, before the day gets to you.'),
+S.custom(`<div class="sl"><div class="split" style="width:min(80vw,1000px)"><img class="gift2 a" src="${IMG}gift-1-cover.jpg" alt="" style="transform:rotate(-3deg)"><div><h2 class="a" ${d(.15)}>The night setup is in the guide you got when you joined</h2><p class="sub a" ${d(.35)}>If you haven't opened it yet, it's pinned in the WhatsApp group.</p></div></div></div>`),
+S.chat('Your turn', 'What time is your best window tomorrow?', 'Type the time in the chat'),
 
-/* ===================== 7 · TRAINING · PILLAR III ===================== */
+/* ===================== 7 · PILLAR III · HOLD THE LINE ===================== */
 S.div('III', 'Pillar three', P[2]),
-S.vs('Pillar three', 'What philosophy is actually for', 'Read everything and hope some of it sticks', 'Take one idea a week and turn it into a rule you live by'),
-S.row('Five teachers, two thousand years apart', 'You don\'t need fifty books', [['M','Marcus Aurelius','Control what you can'],['S','Seneca','Time is all you own'],['S','Sun Tzu','Win before the fight'],['L','Lao Tzu','Effortless action'],['N','Nietzsche','Become who you are']]),
-S.custom(`<div class="sl"><h2 class="a">How one idea becomes a rule</h2><div class="q2r"><div class="q a" ${d(.3)}>Winning without fighting is the height of skill<small>Sun Tzu</small></div><div class="arrow fade" ${d(.8)}>→</div><div class="r a" ${d(1.1)}><small>My rule</small>I don't keep anything in the house I'm trying to stop</div></div></div>`),
-S.custom(`<div class="sl"><h2 class="a">Another one</h2><div class="q2r"><div class="q a" ${d(.3)}>It's not that we have a short time to live, it's that we waste a lot of it<small>Seneca</small></div><div class="arrow fade" ${d(.8)}>→</div><div class="r a" ${d(1.1)}><small>My rule</small>The first hour of the day is mine, not my phone's</div></div></div>`),
-S.custom(`<div class="sl"><div class="code a"><h3>My Code</h3><ol>${['The first hour is mine.','Win the night before.','Train, even when it\'s short.','Write before I react.','Choose my battles on purpose.'].map((r,i)=>`<li class="a" style="--d:${.4+i*.25}">${r}</li>`).join('')}</ol></div><p class="sub a" ${d(1.8)}>Five rules. That's all it takes to know who you are on a bad day.</p></div>`),
-S.text('Choose your battles', 'My ambition pulls me in ten directions at once', 'So one of my rules is to pick the one or two things that matter, and let the rest go past.'),
-S.framed('SWAP:Nolan\'s written code on the wall above his desk', 'Write it down and put it where you\'ll see it every day', 'I keep a few lines on the wall to keep me level.', null, true),
-S.chat('Your turn', 'Write your first rule now', 'Drop it in the chat if you\'re happy to share'),
+S.vs('Pillar three', 'Why plans die in week three', 'You ran out of discipline', 'The novelty wore off, nobody noticed you stop, and one missed day felt like failing'),
+S.custom(`<div class="sl"><h2 class="a">The 80% rule</h2><div class="stat3"><div class="a" ${d(.3)}><b>100%</b><span>gets you to quit by week two</span></div><div class="a" ${d(.45)}><b>80%</b><span>keeps you running for a year</span></div><div class="a" ${d(.6)}><b>24</b><span>days out of 30 is a win</span></div></div></div>`),
+S.row('Your minimum viable day', 'The floor you hold on your worst day', [['I.','One lock-in','Even if it\'s 25 minutes'],['II.','One rep','Training, however short'],['III.','One line','Tomorrow, written down']]),
+S.text('From my own weeks', 'My minimum saved me through travel weeks where everything else fell apart', 'I still hit the floor. That\'s what kept the streak alive.'),
+S.custom(`<div class="sl"><h2 class="a">Where you fold, written down</h2><div class="page">${['Day 16. Flat by 11, skipped my block.','Day 17. Alone all evening, scrolled until 1am.','Day 18. Posted my check-in anyway. Hit the minimum.','Day 19. Back on.'].map((t,i)=>`<p style="--d:${.6+i*1.4}">${t}</p>`).join('')}</div></div>`),
+S.text(null, 'The men who make it past day 18 have one thing in common', 'Someone noticed when they went quiet.'),
+S.chat('Your turn', 'Write your minimum viable day now', 'Three lines. Drop them in the chat'),
 
 /* ===================== 8 · COMMITMENT ===================== */
-S.text(null, 'Does it make sense why willpower kept running out?', 'Type <em>yes</em> in the chat if it does.'),
-S.text(null, 'Can you picture running this week after week?', 'Not perfectly. Just most days, with the fight already won.'),
-S.chat(null, 'If you could set this up and keep it, would that change your year?', 'Drop a <b>yes</b>'),
+S.text(null, 'Does it make sense why motivation kept running out?', 'Type <em>yes</em> in the chat if it does.'),
+S.text(null, 'Can you picture keeping this for thirty days?', 'Not perfectly. Eighty percent, with men around you doing the same.'),
+S.chat(null, 'If you finished this year with thirty days kept, would that change next year?', 'Drop a <b>yes</b>'),
 
 /* ===================== 9 · TRANSITION ===================== */
 S.div('', 'Here\'s the whole game', 'Everything in one picture'),
-S.row(null, 'Win-First Structure', P.map((p,i)=>[[ico.moon,ico.pen,ico.col][i], p, ['Decide tomorrow tonight','See where you fold','Know what you stand for'][i]])),
-S.custom(`<div class="sl"><h2 class="a">If nothing changes, where are you in five weeks?</h2><div class="timeline" style="width:min(80vw,960px)">${[['Today','Same phone, same mornings'],['Week 2','Another restart'],['Week 4','Another quit'],['Week 5','Same place, still waiting for Monday']].map((t,i)=>`<div class="a" style="--d:${.4+i*.3}"><b>${t[0]}</b><span>${t[1]}</span></div>`).join('')}</div></div>`),
-S.cards('From here, there are three paths', 'Which one is yours?', [['I.','Do nothing','Close this tab and hope next Monday is different.'],['II.','Do it alone','Take tonight\'s notes and try to run it by yourself.'],['III.','Let me help you run it','Five weeks, one-on-one with me.']], 2),
-S.text(null, 'Heads up. In a minute I\'m going to tell you how you can work with me.', 'If that\'s not for you, no problem. Stay for the gift at the end.'),
+S.row(null, 'Find it. Lock in. Hold the line.', P.map((p,i)=>[[ico.col,ico.phone,ico.alarm][i], p, ['Know why you\'re doing it','Start without waiting to feel ready','Keep going past day 18'][i]])),
+S.custom(`<div class="sl"><h2 class="a">If nothing changes, where are you in thirty days?</h2><div class="timeline" style="width:min(80vw,960px)">${[['Tonight','A good session, a page of notes'],['Day 5','Strong start'],['Day 18','Quiet stop'],['Day 30','Another plan in the drawer']].map((t,i)=>`<div class="a" style="--d:${.4+i*.3}"><b>${t[0]}</b><span>${t[1]}</span></div>`).join('')}</div></div>`),
+S.cards('From here, there are three paths', 'Which one is yours?', [['I.','Do nothing','Close this tab and hope next Monday is different.'],['II.','Do it alone','Take tonight\'s notes and try to run them by yourself.'],['III.','Do it with us','Thirty days, locked in, with me and the founding cohort.']], 2),
+S.text(null, 'Heads up. In a minute I\'m going to show you what I\'ve been building.', 'If it\'s not for you, no problem. Stay for the gift at the end.'),
 
 /* ===================== 10 · OFFER ===================== */
-S.custom(`<div class="sl"><div class="arcbg"></div><div class="kick a">Introducing</div><h2 class="a xl" ${d(.15)} style="text-transform:uppercase;letter-spacing:.04em"><em style="text-transform:none;font-size:.5em;display:block">Becoming</em>Whole</h2><p class="sub a" ${d(.45)}>A 5-week one-on-one mentorship. The Three Priorities Method.</p></div>`),
-S.text(null, 'In five weeks you go from pulled in every direction to clear on what matters now', 'Three priorities across career, fitness and study, and a weekly rhythm that holds.'),
-S.row('The 5 weeks', 'From the prep phase to a week you can repeat', [['I.','Week 1','The Prep Phase'],['II.','Week 2','Choose the Three'],['III.','Week 3','A Theme for the Month'],['IV.','Week 4','Build the Weekly Phase'],['V.','Week 5','Review and Adjust']]),
+S.custom(`<div class="sl"><div class="arcbg"></div><div class="kick a">Introducing · Vol. 02</div><h2 class="a xl" ${d(.15)} style="text-transform:uppercase;letter-spacing:.04em"><em style="text-transform:none;font-size:.5em;display:block">Living</em>Telos</h2><p class="sub a" ${d(.45)}>A 30-day cohort. Find it, lock in, hold the line.</p></div>`),
+S.art('living-telos-cover.jpg', 'The Structure Starter was the plan. Living Telos is how you live it.', 'Thirty days, starting Monday 7 December. You finish just after New Year.'),
+S.row('The 30 days', 'Built around the week most plans die', [['I.','Days 1 to 3','Find Your Telos'],['II.','Days 4 to 14','Lock In on Demand'],['III.','Days 15 to 21','The Wall'],['IV.','Days 22 to 30','Hold the Line']]),
 S.stack('Here\'s what you get', STACK, 1),
-S.stack('Here\'s what you get', STACK, 2, 'Every step works on your real commitments, your job, your training and your study, not a template.'),
+S.stack('Here\'s what you get', STACK, 2, 'Every man posts a daily check-in. If you go quiet on day sixteen, someone notices.'),
 S.stack('Here\'s what you get', STACK, 3),
 S.stack('Here\'s what you get', STACK, 4),
 S.stack('Here\'s what you get', STACK, 5),
 S.stack('All of it, together', STACK, 6),
 
 /* ===================== 11 · PRICE ===================== */
-S.text('What it\'s worth', 'What would another wasted year cost you?', 'Not in money. In the version of you that doesn\'t get built.'),
-S.text(null, 'There\'s no sales call', 'You apply, I read it myself, and if you\'re one of the ten you get an email with the price and everything you need to start.'),
+S.text('What it\'s worth', 'What did the last plan you abandoned cost you?', 'Not in money. In another month that looked like the one before it.'),
+S.custom(`<div class="sl"><div class="arcbg"></div><div class="kick a">Founding cohort</div><div class="big a"><small style="text-decoration:line-through;opacity:.5;margin-right:2vw">$197</small>$97</div><h2 class="a" ${d(.3)} style="margin-top:3vh;font-size:clamp(22px,3vw,42px)">One payment, on Whop</h2><p class="sub a" ${d(.5)}>The founding price is for this cohort only. It goes up for the next one.</p></div>`),
 
 /* ===================== 12 · BONUSES ===================== */
-S.custom(`<div class="sl"><div class="kick a">On top of that</div><h2 class="a" ${d(.1)}>You also get</h2><div class="chips">${['The Philosophers\' Vault','A weekly live group call with the founding ten'].map((c,i)=>`<span class="a" style="--d:${.3+i*.15}">${c}</span>`).join('')}</div></div>`),
-S.custom(`<div class="sl"><div class="split" style="width:min(80vw,1000px)"><img class="gift2 a" src="${IMG}gift-2-cover.jpg" alt=""><div><div class="kick a" style="justify-content:flex-start">For staying to the end</div><h2 class="a" ${d(.15)}>The Personal Code Workbook</h2><p class="sub a" ${d(.35)}>Thirty prompts across five philosophers, my own code as a worked example, and a card for your wall. It's yours free, linked under the replay.</p></div></div></div>`),
-S.text(null, 'Write your five rules this week, whether or not you join', 'It\'s the fastest way to know who you are on a bad day.'),
+S.custom(`<div class="sl"><div class="split" style="width:min(80vw,1000px)"><img class="gift2 a" src="${IMG}gift-2-cover.jpg" alt=""><div><div class="kick a" style="justify-content:flex-start">Join before we finish tonight</div><h2 class="a" ${d(.15)}>The Personal Code Workbook</h2><p class="sub a" ${d(.35)}>Thirty prompts across five philosophers, my own code as a worked example, and a card for your wall. Yours if you join before this session ends.</p></div></div></div>`),
+S.custom(`<div class="sl"><div class="kick a">On top of that</div><h2 class="a" ${d(.1)}>You also keep</h2><div class="chips">${['Lifetime access to the modules','The Living Telos workspace, yours to edit forever'].map((c,i)=>`<span class="a" style="--d:${.3+i*.15}">${c}</span>`).join('')}</div></div>`),
 
 /* ===================== 13 · RISK REVERSAL ===================== */
-S.custom(`<div class="sl"><div class="arcbg"></div><div class="a" style="width:120px;height:120px;border-radius:50%;border:1px solid var(--gold);display:grid;place-items:center;font-family:var(--display);font-size:44px;color:var(--gold-2);box-shadow:0 0 0 8px rgba(200,169,106,.08)">3</div><h2 class="a" ${d(.2)} style="margin-top:4vh">It plans for your bad weeks</h2><p class="sub a" ${d(.4)}>Every plan you've quit assumed you'd stay intense. Yours has a minimum viable week, a floor you can hold when life gets hard, so a bad week never turns into starting over.</p></div>`),
-S.text(null, 'Applying is free, and there\'s no obligation', 'If it\'s not the right fit, I\'ll tell you straight.'),
+S.custom(`<div class="sl"><div class="arcbg"></div><div class="a" style="width:120px;height:120px;border-radius:50%;border:1px solid var(--gold);display:grid;place-items:center;font-family:var(--display);font-size:44px;color:var(--gold-2);box-shadow:0 0 0 8px rgba(200,169,106,.08)">14</div><h2 class="a" ${d(.2)} style="margin-top:4vh">The fourteen-day promise</h2><p class="sub a" ${d(.4)}>Do the first fourteen days: the modules and your check-ins. If you haven't kept more of your plan than you did before, message us before day fifteen and you get your $97 back.</p></div>`),
 
 /* ===================== 14 · URGENCY ===================== */
-S.custom(`<div class="sl"><h2 class="a">Ten founding places</h2><div class="seats">${Array.from({length:10},(_,i)=>`<i style="--d:${.3+i*.08}"></i>`).join('')}</div><p class="sub a" ${d(1.2)}>This first intake is one-on-one with me. Once the method is proven, it moves to recorded lessons and group coaching. The founding ten are the only men who get me one-on-one.</p></div>`),
-S.text('Why now', 'Every month you wing in your twenties is one you don\'t get back', 'Five weeks from now, you could already be running it.'),
-S.custom(S.row('What happens next', 'Three steps', [['I.','Apply tonight','Three quick questions, link in the chat'],['II.','I read every one','Ten men get an invite'],['III.','Start week one','The prep phase, with me']]).replace(/<\/div>$/, `${applyLink(1.2)}<p class="sub a" ${d(1.4)}>Missed it tonight? The application is under the replay too.</p></div>`)),
-S.custom(`<div class="sl"><div class="arcbg"></div><h2 class="a xl">Win the day before it starts</h2><p class="sub a" ${d(.4)}>Apply tonight, and I'll see you in week one.</p>${applyLink(.6)}<p class="sub a" ${d(.8)} style="font-size:clamp(13px,1.2vw,16px)">Can't do it now? The application stays under the replay.</p><div class="kick a" style="--d:1;margin-top:6vh">Nolan Killeen · Body · Mind · Character</div></div>`),
+S.custom(`<div class="sl"><h2 class="a">Doors close Thursday at midnight</h2><div class="seats" style="grid-template-columns:repeat(4,1fr);width:min(30vw,300px);margin-left:auto;margin-right:auto">${Array.from({length:4},(_,i)=>`<i style="--d:${.3+i*.12}"></i>`).join('')}</div><p class="sub a" ${d(1.2)}>Four days. Then the founding price and this replay come down, and the cohort starts Monday 7 December.</p></div>`),
+S.text('Why now', 'You can start 2027 already thirty days in', 'Or you can make another plan on 1 January and see how far it gets.'),
+S.custom(S.row('What happens next', 'Three steps', [['I.','Join tonight','$97 on Whop, link in the chat'],['II.','Get access','The workspace and module one, straight away'],['III.','Day one','Monday 7 December, live kickoff with me']]).replace(/<\/div>$/, `${joinLink(1.2)}<p class="sub a" ${d(1.4)}>Missed it tonight? The link is under the replay until Thursday.</p></div>`)),
+S.custom(`<div class="sl"><div class="arcbg"></div><h2 class="a xl">Find it. Lock in. Hold the line.</h2><p class="sub a" ${d(.4)}>Join tonight, and I'll see you on day one.</p>${joinLink(.6)}<p class="sub a" ${d(.8)} style="font-size:clamp(13px,1.2vw,16px)">Doors close Thursday 3 December at midnight Eastern.</p><div class="kick a" style="--d:1;margin-top:6vh">Nolan Killeen · Body · Mind · Character</div></div>`),
 ]);
 </script>
 </body>
